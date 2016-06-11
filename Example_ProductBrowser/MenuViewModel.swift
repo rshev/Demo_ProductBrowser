@@ -18,14 +18,14 @@ class MenuViewModel {
     }
     
     var sectionNames$: Driver<[String]> {
-        return CatManager.sharedManager.sections.flatMap({ (sections) -> Driver<[String]> in
+        return CatManager.sharedManager.sections$.flatMap({ (sections) -> Driver<[String]> in
             return Driver.just(sections.map { $0.title })
         })
     }
     
     var sectionCategoryNames$: Driver<[String]> {
         let sectionNumber = _selectedSectionNumber.value
-        return CatManager.sharedManager.sections.flatMap({ (sections) -> Driver<[String]> in
+        return CatManager.sharedManager.sections$.flatMap({ (sections) -> Driver<[String]> in
             return Driver.just(sections[sectionNumber].categories.map { $0.name })
         })
     }

@@ -25,11 +25,6 @@ struct Backend {
             })
     }
     
-    enum SectionType {
-        case Men
-        case Women
-    }
-    
     static func requestSection(type type: SectionType) -> Observable<Section> {
         let target: BackendTarget
         switch type {

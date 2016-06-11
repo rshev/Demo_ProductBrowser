@@ -20,3 +20,8 @@ struct Section: Unboxable {
     }
     
 }
+
+enum SectionType {
+    case Men
+    case Women
+}

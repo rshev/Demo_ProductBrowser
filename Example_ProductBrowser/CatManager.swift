@@ -19,7 +19,10 @@ class CatManager {
     private let disposeBag = DisposeBag()
     
     private let _sections = Variable([Section]())
-    var sections: Driver<[Section]> {
+    var sections: [Section] {
+        return _sections.value
+    }
+    var sections$: Driver<[Section]> {
         return _sections.asDriver()
     }
     
