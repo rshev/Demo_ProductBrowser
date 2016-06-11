@@ -18,22 +18,18 @@ class CatManager {
     
     private let disposeBag = DisposeBag()
     
-    private let _sectionMen: Variable<Section?> = Variable(nil)
-    var sectionMen: Driver<Section?> {
-        return _sectionMen.asDriver()
-    }
-    private let _sectionWomen: Variable<Section?> = Variable(nil)
-    var sectionWomen: Driver<Section?> {
-        return _sectionWomen.asDriver()
+    private let _sections = Variable([Section]())
+    var sections: Driver<[Section]> {
+        return _sections.asDriver()
     }
     
     private func requestSections() {
         Backend.requestSection(type: .Men).subscribeNext { (section) in
-            self._sectionMen.value = section
+            self._sections.value.append(section)
         }.addDisposableTo(disposeBag)
         
         Backend.requestSection(type: .Women).subscribeNext { (section) in
-            self._sectionWomen.value = section
+            self._sections.value.append(section)
         }.addDisposableTo(disposeBag)
     }
     

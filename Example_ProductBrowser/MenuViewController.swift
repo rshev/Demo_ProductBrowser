@@ -16,37 +16,35 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var buttonLeft: UIButton!
     @IBOutlet weak var buttonRight: UIButton!
     @IBOutlet weak var tableView: UITableView!
+
+    private let viewModel = MenuViewModel()
     
     private let disposeBag = DisposeBag()
     
-    var selectedSection: Int = 0 {
-        didSet {
-            guard selectedSection != oldValue else { return }
-            tableView.reloadData()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         SideMenuManager.menuFadeStatusBar = false
-        CatManager.sharedManager.sections.driveNext { [weak self] (sections) in
-            self?.buttonLeft.setTitle(sections[0].title, forState: .Normal)
-            self?.buttonRight.setTitle(sections[1].title, forState: .Normal)
+
+        viewModel.sectionNames$.driveNext { [weak self] (sectionNames) in
+            self?.buttonLeft.setTitle(sectionNames[0], forState: .Normal)
+            self?.buttonRight.setTitle(sectionNames[1], forState: .Normal)
         }.addDisposableTo(disposeBag)
         
         buttonLeft.rx_tap.subscribeNext { [weak self] in
-            self?.selectedSection = 0
+            self?.viewModel.selectSectionNumber(0)
+            self?.tableView.reloadData()
         }.addDisposableTo(disposeBag)
         
         buttonRight.rx_tap.subscribeNext { [weak self] in
-            self?.selectedSection = 1
+            self?.viewModel.selectSectionNumber(1)
+            self?.tableView.reloadData()
         }.addDisposableTo(disposeBag)
-        
-        CatManager.sharedManager.sections.drive(tableView.rx_itemsWithCellIdentifier("CatCell", cellType: UITableViewCell.self))  { (row, section, cell) in
+
+        viewModel.sectionCategoryNames$.drive(tableView.rx_itemsWithCellIdentifier("CatCell", cellType: UITableViewCell.self))(configureCell: { (row, title, cell) in
             
-            cell.textLabel?.text = section.categories[row].name
-        }.addDisposableTo(disposeBag)
+            cell.textLabel?.text = title
+        }).addDisposableTo(disposeBag)
+        
     }
 
 
