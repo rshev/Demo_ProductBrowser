@@ -21,6 +21,7 @@
 		643872AD1D0C941100563D39 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872AC1D0C941100563D39 /* Category.swift */; };
 		643872AF1D0C964A00563D39 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872AE1D0C964A00563D39 /* Product.swift */; };
 		643872B11D0C98A500563D39 /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872B01D0C98A500563D39 /* CategoryDetails.swift */; };
+		643872B31D0CA28700563D39 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872B21D0CA28700563D39 /* ProductDetails.swift */; };
 		7C82320659BF8696B49C3EF4 /* Pods_Example_ProductBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9AB1283669754CB9127FF1 /* Pods_Example_ProductBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		643872AC1D0C941100563D39 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		643872AE1D0C964A00563D39 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		643872B01D0C98A500563D39 /* CategoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
+		643872B21D0CA28700563D39 /* ProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
 		A4BFE97299095B36AABBA3E6 /* Pods-Example_ProductBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_ProductBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example_ProductBrowserTests/Pods-Example_ProductBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
 		C313EAED1355B6F55BA95722 /* Pods-Example_ProductBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_ProductBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example_ProductBrowser/Pods-Example_ProductBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		C42822C931D8E81866A53BBA /* Pods_Example_ProductBrowserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_ProductBrowserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +152,7 @@
 				643872AC1D0C941100563D39 /* Category.swift */,
 				643872B01D0C98A500563D39 /* CategoryDetails.swift */,
 				643872AE1D0C964A00563D39 /* Product.swift */,
+				643872B21D0CA28700563D39 /* ProductDetails.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				643872A41D0C748500563D39 /* Moya+Extensions.swift in Sources */,
 				643872AF1D0C964A00563D39 /* Product.swift in Sources */,
+				643872B31D0CA28700563D39 /* ProductDetails.swift in Sources */,
 				643872851D0C6D4A00563D39 /* ViewController.swift in Sources */,
 				643872831D0C6D4A00563D39 /* AppDelegate.swift in Sources */,
 				643872AB1D0C933900563D39 /* Section.swift in Sources */,

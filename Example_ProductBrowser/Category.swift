@@ -13,11 +13,14 @@ struct Category: Unboxable {
     
     let id: String
     let name: String
-    var categoryDetails: CategoryDetails?
+    var details: CategoryDetails?
     
     init(unboxer: Unboxer) {
         id = unboxer.unbox("CategoryId")
         name = unboxer.unbox("Name")
     }
     
+    mutating func assignDetails(categoryDetails: CategoryDetails) {
+        details = categoryDetails
+    }
 }

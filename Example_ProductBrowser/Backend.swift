@@ -9,55 +9,53 @@
 import Foundation
 import Moya
 import RxSwift
+import Unbox
 
 struct Backend {
-    static let provider = RxMoyaProvider<BackendTarget>()
     
-    enum ErrorJSON: ErrorType {
-        case NotDictionary, NoRequiredKeys
-        case BackendMessage(err: String)
-        case NetworkUnreachable
+    private static let provider = RxMoyaProvider<BackendTarget>()
+    
+    private static func request(target: BackendTarget) -> Observable<NSData> {
+        return provider.request(target)
+            .retryIfMoyaUnreachable()
+            .filterSuccessfulStatusCodes()
+            .flatMap({ (response) -> Observable<NSData> in
+                
+                return Observable.just(response.data)
+            })
     }
     
-    /// QIU (d: false) should not be used for user reactions; autoRetries (d: true)
-    static func requestJSON(target: BackendTarget, requiredKeys: Set<String>, queueIfUnreachable: Bool = false, autoRetries: Bool = true) -> Observable<JSON> {
-        
-        if !queueIfUnreachable {
-            guard ReachabilityService.sharedService.isReachable else {
-                GlobalBanner.showBannerNetworkError()
-                return Observable.error(ErrorJSON.NetworkUnreachable)
-            }
+    enum SectionType {
+        case Men
+        case Women
+    }
+    
+    static func requestSection(type type: SectionType) -> Observable<Section> {
+        let target: BackendTarget
+        switch type {
+        case .Men:
+            target = .GetCategoriesListMen
+        case .Women:
+            target = .GetCategoriesListWomen
         }
-        var observable = provider.request(target)
-        if autoRetries { observable = observable.retryIfMoyaUnreachable() }     // here we handle connectivity errors
-        return observable
-            .retryIfServerStatusCodeOverload()
-            .flatMap({ (response) -> Observable<JSON> in
-                
-                let json = JSON(data: response.data)
-                if !requiredKeys.isEmpty {
-                    guard let jsonKeys = json.dictionaryObject?.keys else {
-                        // FIXME: Report it via analytics
-                        printl("***ERROR*** \(ErrorJSON.NotDictionary)")
-                        //                        printl(response.statusCode)
-                        //                        printl(NSString(data: response.data, encoding: NSUTF8StringEncoding))
-                        GlobalBanner.showBannerNetworkError()
-                        throw ErrorJSON.NotDictionary
-                    }
-                    guard requiredKeys.isSubsetOf(jsonKeys) else {
-                        // FIXME: Report it via analytics
-                        printl("***ERROR*** \(ErrorJSON.NoRequiredKeys)")
-                        GlobalBanner.showBannerNetworkError()
-                        throw ErrorJSON.NoRequiredKeys
-                    }
-                }
-                if let err = json["error"].string {
-                    printl("*ERROR*BACKENDMSG* \(err)")
-                    GlobalBanner.showBanner(.Error, title: "Uh-oh, backend returned:", subtitle: err)
-                    throw ErrorJSON.BackendMessage(err: err)
-                }
-                return Observable.just(json)
-            })
+        return request(target).flatMap({ (data) -> Observable<Section> in
+            let section: Section = try Unbox(data)
+            return Observable.just(section)
+        })
+    }
+    
+    static func requestProductsInCategory(categoryId id: String) -> Observable<CategoryDetails> {
+        return request(.GetProductsInCategory(catId: id)).flatMap({ (data) -> Observable<CategoryDetails> in
+            let categoryDetails: CategoryDetails = try Unbox(data)
+            return Observable.just(categoryDetails)
+        })
+    }
+    
+    static func requestProductDetails(productId id: String) -> Observable<ProductDetails> {
+        return request(.GetProductDetails(productId: id)).flatMap({ (data) -> Observable<ProductDetails> in
+            let productDetails: ProductDetails = try Unbox(data)
+            return Observable.just(productDetails)
+        })
     }
     
 }
@@ -65,7 +63,7 @@ struct Backend {
 public enum BackendTarget {
     case GetCategoriesListMen
     case GetCategoriesListWomen
-    case GetProductInCategory(catId: String)
+    case GetProductsInCategory(catId: String)
     case GetProductDetails(productId: String)
 }
 
@@ -90,7 +88,7 @@ extension BackendTarget: TargetType {
             return "/cats_women.json"
         case .GetProductDetails:
             return "/anyproduct_details.json"
-        case .GetProductInCategory:
+        case .GetProductsInCategory:
             return "/anycat_products.json"
         }
     }
@@ -98,10 +96,10 @@ extension BackendTarget: TargetType {
     public var parameters: [String : AnyObject]? {
         switch self {
         case .GetCategoriesListMen, .GetCategoriesListWomen:
-            break
+            return nil
         case .GetProductDetails(productId: let productId):
             return ["catid": productId]
-        case .GetProductInCategory(catId: let catId):
+        case .GetProductsInCategory(catId: let catId):
             return ["catid": catId]
         }
     }
