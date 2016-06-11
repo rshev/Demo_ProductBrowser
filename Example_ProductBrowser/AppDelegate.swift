@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         _ = CatManager.sharedManager                    // init CatManager
+                                                        // which will start to download sections asyncly
+                                                        // even before the UI appears
         
         return true
     }

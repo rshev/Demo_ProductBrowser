@@ -8,27 +8,36 @@ PODS:
   - Moya/RxSwift (6.5.0):
     - Moya/Core
     - RxSwift (~> 2.0)
+  - R.swift (2.3.0):
+    - R.swift.Library (~> 2.1.0)
+  - R.swift.Library (2.1.0)
   - Result (2.0.0)
   - RxCocoa (2.5.0):
     - RxSwift (~> 2.5)
   - RxSwift (2.5.0)
+  - SideMenu (1.1.7)
   - Unbox (1.6)
 
 DEPENDENCIES:
   - Moya
   - Moya/RxSwift
+  - R.swift
   - RxCocoa
   - RxSwift
+  - SideMenu
   - Unbox
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
+  R.swift: 38b2191a603c3d491a09baddfb4ccc7aa9be4d9d
+  R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
   Result: 9e75e1111c774c6ac594e14907b15057053a7959
   RxCocoa: e1b1562e57a554d0fb2aabf9d71b637f177257c7
   RxSwift: 402b41a50e922a0368fc14cb3bc9f4427920e8ae
+  SideMenu: 7b420772e1aa7a2b3a0b0e191566e7e8e0868f53
   Unbox: c93120a1096fd0b6dab043d82919ac66b81ee1a2
 
-PODFILE CHECKSUM: 8141ea442f6bf30f666a28ad26e7b998bd799dc9
+PODFILE CHECKSUM: 06dbae9f03554530358f23c44c8f22b6b185b991
 
 COCOAPODS: 1.0.0

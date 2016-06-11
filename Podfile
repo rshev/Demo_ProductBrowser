@@ -12,7 +12,8 @@ target 'Example_ProductBrowser' do
   pod 'Moya'
   pod 'Moya/RxSwift'
   pod 'Unbox'
-#   pod '
+  pod 'SideMenu'
+  pod 'R.swift'
   # Pods for Example_ProductBrowser
 
   target 'Example_ProductBrowserTests' do
