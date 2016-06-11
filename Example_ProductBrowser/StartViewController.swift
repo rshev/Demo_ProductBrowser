@@ -17,8 +17,10 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CatManager.sharedManager.sections.driveNext { [weak self] (sections) in
-            guard sections.count > 1 else { return }
+        Driver.combineLatest(CatManager.sharedManager.sectionMen, CatManager.sharedManager.sectionWomen) {
+            return ($0, $1)
+        }.driveNext { [weak self] (sectionMen, sectionWomen) in
+            guard sectionMen != nil && sectionWomen != nil else { return }
             self?.performSegueWithIdentifier(R.segue.startViewController.startToMain.identifier, sender: self)
         }.addDisposableTo(disposeBag)
     }
