@@ -14,6 +14,13 @@
 		6438728A1D0C6D4A00563D39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 643872891D0C6D4A00563D39 /* Assets.xcassets */; };
 		6438728D1D0C6D4A00563D39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6438728B1D0C6D4A00563D39 /* LaunchScreen.storyboard */; };
 		643872981D0C6D4A00563D39 /* Example_ProductBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872971D0C6D4A00563D39 /* Example_ProductBrowserTests.swift */; };
+		643872A41D0C748500563D39 /* Moya+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872A31D0C748500563D39 /* Moya+Extensions.swift */; };
+		643872A61D0C751000563D39 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872A51D0C751000563D39 /* Extensions.swift */; };
+		643872A81D0C757500563D39 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872A71D0C757500563D39 /* Backend.swift */; };
+		643872AB1D0C933900563D39 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872AA1D0C933900563D39 /* Section.swift */; };
+		643872AD1D0C941100563D39 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872AC1D0C941100563D39 /* Category.swift */; };
+		643872AF1D0C964A00563D39 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872AE1D0C964A00563D39 /* Product.swift */; };
+		643872B11D0C98A500563D39 /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872B01D0C98A500563D39 /* CategoryDetails.swift */; };
 		7C82320659BF8696B49C3EF4 /* Pods_Example_ProductBrowser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F9AB1283669754CB9127FF1 /* Pods_Example_ProductBrowser.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +47,13 @@
 		643872931D0C6D4A00563D39 /* Example_ProductBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Example_ProductBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		643872971D0C6D4A00563D39 /* Example_ProductBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Example_ProductBrowserTests.swift; sourceTree = "<group>"; };
 		643872991D0C6D4A00563D39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		643872A31D0C748500563D39 /* Moya+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Moya+Extensions.swift"; sourceTree = "<group>"; };
+		643872A51D0C751000563D39 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		643872A71D0C757500563D39 /* Backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
+		643872AA1D0C933900563D39 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		643872AC1D0C941100563D39 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		643872AE1D0C964A00563D39 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		643872B01D0C98A500563D39 /* CategoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
 		A4BFE97299095B36AABBA3E6 /* Pods-Example_ProductBrowserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_ProductBrowserTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example_ProductBrowserTests/Pods-Example_ProductBrowserTests.release.xcconfig"; sourceTree = "<group>"; };
 		C313EAED1355B6F55BA95722 /* Pods-Example_ProductBrowser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example_ProductBrowser.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example_ProductBrowser/Pods-Example_ProductBrowser.release.xcconfig"; sourceTree = "<group>"; };
 		C42822C931D8E81866A53BBA /* Pods_Example_ProductBrowserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_ProductBrowserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +112,9 @@
 		643872811D0C6D4A00563D39 /* Example_ProductBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				643872A51D0C751000563D39 /* Extensions.swift */,
+				643872A91D0C930C00563D39 /* Models */,
+				643872A21D0C747300563D39 /* Backend */,
 				643872821D0C6D4A00563D39 /* AppDelegate.swift */,
 				643872841D0C6D4A00563D39 /* ViewController.swift */,
 				643872861D0C6D4A00563D39 /* Main.storyboard */,
@@ -115,6 +132,26 @@
 				643872991D0C6D4A00563D39 /* Info.plist */,
 			);
 			path = Example_ProductBrowserTests;
+			sourceTree = "<group>";
+		};
+		643872A21D0C747300563D39 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				643872A31D0C748500563D39 /* Moya+Extensions.swift */,
+				643872A71D0C757500563D39 /* Backend.swift */,
+			);
+			name = Backend;
+			sourceTree = "<group>";
+		};
+		643872A91D0C930C00563D39 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				643872AA1D0C933900563D39 /* Section.swift */,
+				643872AC1D0C941100563D39 /* Category.swift */,
+				643872B01D0C98A500563D39 /* CategoryDetails.swift */,
+				643872AE1D0C964A00563D39 /* Product.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A01100C01499AEBC69C3C57A /* Pods */ = {
@@ -328,8 +365,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				643872A41D0C748500563D39 /* Moya+Extensions.swift in Sources */,
+				643872AF1D0C964A00563D39 /* Product.swift in Sources */,
 				643872851D0C6D4A00563D39 /* ViewController.swift in Sources */,
 				643872831D0C6D4A00563D39 /* AppDelegate.swift in Sources */,
+				643872AB1D0C933900563D39 /* Section.swift in Sources */,
+				643872B11D0C98A500563D39 /* CategoryDetails.swift in Sources */,
+				643872A61D0C751000563D39 /* Extensions.swift in Sources */,
+				643872A81D0C757500563D39 /* Backend.swift in Sources */,
+				643872AD1D0C941100563D39 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Example_ProductBrowser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rshev.Example-ProductBrowser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
