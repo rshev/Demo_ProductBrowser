@@ -10,33 +10,32 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+protocol MenuViewModelDelegate: class {
+    func refresh()
+}
+
 class MenuViewModel {
     
-    private let _selectedSectionNumber = Variable(Int(0))
-    var selectedSectionNumber$: Driver<Int> {
-        return _selectedSectionNumber.asDriver().distinctUntilChanged()
+    weak var delegate: MenuViewModelDelegate?
+    
+    private let _refreshTrigger = Variable()
+    var refreshTrigger$: Driver<Void> {
+        return _refreshTrigger.asDriver()
     }
     
-    var sectionNames$: Driver<[String]> {
-        return CatManager.sharedManager.sections$.flatMap({ (sections) -> Driver<[String]> in
-            return Driver.just(sections.map { $0.title })
-        })
+    var selectedSectionNumber = 0
+    
+    var sectionNames: [String] {
+        return CatManager.sharedManager.sections.map { $0.title }
     }
     
-    var sectionCategoryNames$: Driver<[String]> {
-        let sectionNumber = _selectedSectionNumber.value
-        return CatManager.sharedManager.sections$.flatMap({ (sections) -> Driver<[String]> in
-            return Driver.just(sections[sectionNumber].categories.map { $0.name })
-        })
-    }
-    
-    init() {
-        
+    var sectionCategoryNames: [String] {
+        return CatManager.sharedManager.sections[selectedSectionNumber].categories.map { $0.name }
     }
     
     func selectSectionNumber(section: Int) {
-        _selectedSectionNumber.value = section
-        
+        selectedSectionNumber = section
+        delegate?.refresh()
     }
 
 }

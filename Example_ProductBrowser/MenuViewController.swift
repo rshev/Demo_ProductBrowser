@@ -25,27 +25,49 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         SideMenuManager.menuFadeStatusBar = false
 
-        viewModel.sectionNames$.driveNext { [weak self] (sectionNames) in
-            self?.buttonLeft.setTitle(sectionNames[0], forState: .Normal)
-            self?.buttonRight.setTitle(sectionNames[1], forState: .Normal)
-        }.addDisposableTo(disposeBag)
+        viewModel.delegate = self
+        
+        buttonLeft.setTitle(viewModel.sectionNames[0], forState: .Normal)
+        buttonRight.setTitle(viewModel.sectionNames[1], forState: .Normal)
         
         buttonLeft.rx_tap.subscribeNext { [weak self] in
             self?.viewModel.selectSectionNumber(0)
-            self?.tableView.reloadData()
         }.addDisposableTo(disposeBag)
         
         buttonRight.rx_tap.subscribeNext { [weak self] in
             self?.viewModel.selectSectionNumber(1)
-            self?.tableView.reloadData()
         }.addDisposableTo(disposeBag)
 
-        viewModel.sectionCategoryNames$.drive(tableView.rx_itemsWithCellIdentifier("CatCell", cellType: UITableViewCell.self))(configureCell: { (row, title, cell) in
-            
-            cell.textLabel?.text = title
-        }).addDisposableTo(disposeBag)
-        
     }
 
+}
 
+extension MenuViewController: MenuViewModelDelegate {
+    
+    func refresh() {
+        tableView.reloadData()
+    }
+    
+}
+
+extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.sectionCategoryNames.count
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(R.reuseIdentifier.catCell.identifier, forIndexPath: indexPath)
+        cell.textLabel?.text = viewModel.sectionCategoryNames[indexPath.row]
+        return cell
+    }
+    
 }
