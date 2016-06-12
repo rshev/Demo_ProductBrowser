@@ -14,6 +14,7 @@ target 'Example_ProductBrowser' do
   pod 'Unbox'
   pod 'SideMenu'
   pod 'R.swift'
+  pod 'AlamofireImage', '~> 2.0'
   # Pods for Example_ProductBrowser
 
   target 'Example_ProductBrowserTests' do

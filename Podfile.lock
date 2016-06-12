@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (3.4.0)
+  - AlamofireImage (2.4.0):
+    - Alamofire (~> 3.3)
   - Moya (6.5.0):
     - Moya/Core (= 6.5.0)
   - Moya/Core (6.5.0):
@@ -19,6 +21,7 @@ PODS:
   - Unbox (1.6)
 
 DEPENDENCIES:
+  - AlamofireImage (~> 2.0)
   - Moya
   - Moya/RxSwift
   - R.swift
@@ -29,6 +32,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
+  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   Moya: f7a4044719381cc6299f9ad3e0ef05f426f0557b
   R.swift: 38b2191a603c3d491a09baddfb4ccc7aa9be4d9d
   R.swift.Library: e5e077ed04f6867a95676af491650091b23518e9
@@ -38,6 +42,6 @@ SPEC CHECKSUMS:
   SideMenu: 7b420772e1aa7a2b3a0b0e191566e7e8e0868f53
   Unbox: c93120a1096fd0b6dab043d82919ac66b81ee1a2
 
-PODFILE CHECKSUM: 06dbae9f03554530358f23c44c8f22b6b185b991
+PODFILE CHECKSUM: 721c4681732d9e89ea98362b70ee622a16273d66
 
 COCOAPODS: 1.0.0

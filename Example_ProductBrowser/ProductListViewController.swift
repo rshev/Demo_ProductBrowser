@@ -17,18 +17,25 @@ class ProductListViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    var collectionViewVisible = false {
+        willSet {
+            UIView.animateWithDuration(0.5) { [weak self] in
+                self?.collectionView.alpha = newValue ? 1.0 : 0.0
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.hidden = true
+        collectionView.alpha = 0
 
         self.performSegueWithIdentifier(R.segue.productListViewController.hamburgerMenu.identifier, sender: self)
     }
 
     @IBAction func unwindWithSelectedCategoryId(segue: UIStoryboardSegue) {
-        self.collectionView.hidden = true
+        collectionViewVisible = false
         viewModel?.requestCategoryDetails().subscribeNext({ [weak self] in
-            printl()
-            self?.collectionView.hidden = false
+            self?.collectionViewVisible = true
             self?.collectionView.reloadData()
         }).addDisposableTo(disposeBag)
     }
@@ -56,7 +63,8 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.productCell.identifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.productCell.identifier, forIndexPath: indexPath) as! ProductCollectionViewCell
+        cell.priceLabel.text = viewModel?.getProductPrice(index: indexPath.item)
         return cell
     }
     
