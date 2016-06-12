@@ -43,10 +43,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xly-5t-ATP">
                                         <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonLeftTap:" destination="rmT-Eq-6a9" eventType="touchUpInside" id="etr-GA-DHb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHc-tV-hww">
                                         <rect key="frame" x="187" y="0.0" width="187.5" height="50"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonRightTap:" destination="rmT-Eq-6a9" eventType="touchUpInside" id="3Xg-mj-FzU"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

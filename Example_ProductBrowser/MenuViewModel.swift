@@ -7,23 +7,18 @@
 //
 
 import Foundation
-import RxCocoa
-import RxSwift
 
 protocol MenuViewModelDelegate: class {
-    func refresh()
+    func menuRefreshListOfCategories()
+    func menuSelectSectionNumber(num: Int)
+    func menuPassCategoryIdFurther(id: String)
 }
 
 class MenuViewModel {
     
     weak var delegate: MenuViewModelDelegate?
     
-    private let _refreshTrigger = Variable()
-    var refreshTrigger$: Driver<Void> {
-        return _refreshTrigger.asDriver()
-    }
-    
-    var selectedSectionNumber = 0
+    private var selectedSectionNumber = 0
     
     var sectionNames: [String] {
         return CatManager.sharedManager.sections.map { $0.title }
@@ -35,7 +30,12 @@ class MenuViewModel {
     
     func selectSectionNumber(section: Int) {
         selectedSectionNumber = section
-        delegate?.refresh()
+        delegate?.menuRefreshListOfCategories()
+        delegate?.menuSelectSectionNumber(section)
     }
 
+    func selectCategoryAtRow(row: Int) {
+        delegate?.menuPassCategoryIdFurther(CatManager.sharedManager.sections[selectedSectionNumber].categories[row].id)
+    }
+    
 }

@@ -8,8 +8,6 @@
 
 import UIKit
 import SideMenu
-import RxSwift
-import RxCocoa
 
 class MenuViewController: UIViewController {
 
@@ -18,8 +16,6 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private let viewModel = MenuViewModel()
-    
-    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +26,30 @@ class MenuViewController: UIViewController {
         buttonLeft.setTitle(viewModel.sectionNames[0], forState: .Normal)
         buttonRight.setTitle(viewModel.sectionNames[1], forState: .Normal)
         
-        buttonLeft.rx_tap.subscribeNext { [weak self] in
-            self?.viewModel.selectSectionNumber(0)
-        }.addDisposableTo(disposeBag)
-        
-        buttonRight.rx_tap.subscribeNext { [weak self] in
-            self?.viewModel.selectSectionNumber(1)
-        }.addDisposableTo(disposeBag)
-
     }
 
+    @IBAction func buttonLeftTap(sender: AnyObject) {
+        viewModel.selectSectionNumber(0)
+    }
+    
+    @IBAction func buttonRightTap(sender: AnyObject) {
+        viewModel.selectSectionNumber(1)
+    }
+    
 }
 
 extension MenuViewController: MenuViewModelDelegate {
     
-    func refresh() {
+    func menuRefreshListOfCategories() {
         tableView.reloadData()
+    }
+    
+    func menuSelectSectionNumber(num: Int) {
+        //
+    }
+    
+    func menuPassCategoryIdFurther(id: String) {
+        //
     }
     
 }
@@ -68,6 +72,10 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(R.reuseIdentifier.catCell.identifier, forIndexPath: indexPath)
         cell.textLabel?.text = viewModel.sectionCategoryNames[indexPath.row]
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        viewModel.selectCategoryAtRow(indexPath.row)
     }
     
 }
