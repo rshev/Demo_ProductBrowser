@@ -36,6 +36,15 @@ class MenuViewController: UIViewController {
         viewModel.selectSectionNumber(1)
     }
     
+    var selectedCategoryId: String?
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let productListVC = segue.destinationViewController as? ProductListViewController, selectedCategoryId = selectedCategoryId {
+            
+            productListVC.selectedCategoryId = selectedCategoryId
+        }
+    }
+    
 }
 
 extension MenuViewController: MenuViewModelDelegate {
@@ -49,7 +58,8 @@ extension MenuViewController: MenuViewModelDelegate {
     }
     
     func menuPassCategoryIdFurther(id: String) {
-        //
+        selectedCategoryId = id
+        self.performSegueWithIdentifier(R.segue.menuViewController.unwindWithSelectedCategoryId.identifier, sender: self)
     }
     
 }

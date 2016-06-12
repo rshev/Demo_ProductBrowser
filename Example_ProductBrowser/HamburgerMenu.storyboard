@@ -103,9 +103,11 @@
                         <outlet property="buttonLeft" destination="Xly-5t-ATP" id="q1K-BY-1Qe"/>
                         <outlet property="buttonRight" destination="pHc-tV-hww" id="Wm8-bH-C6E"/>
                         <outlet property="tableView" destination="edu-DO-Gny" id="0do-Y4-ybb"/>
+                        <segue destination="Gzl-4e-5Wj" kind="unwind" identifier="unwindWithSelectedCategoryId" unwindAction="unwindWithSelectedCategoryId:" id="cJc-Sr-yRd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WHX-Rd-gUI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Gzl-4e-5Wj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-287.5" y="561.5"/>
         </scene>

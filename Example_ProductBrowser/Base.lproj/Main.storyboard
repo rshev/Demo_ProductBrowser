@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Start View Controller-->
@@ -35,7 +36,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="fiS-HE-mzg" kind="show" identifier="StartToMain" id="nbO-Ca-o0F"/>
+                        <segue destination="a0W-Ye-8fb" kind="show" identifier="StartToMain" id="nbO-Ca-o0F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -48,12 +49,12 @@
                 <viewControllerPlaceholder storyboardName="HamburgerMenu" id="Xg3-8D-qmw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S5N-S3-uSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-339.5" y="-56"/>
+            <point key="canvasLocation" x="710" y="-137"/>
         </scene>
-        <!--View Controller-->
+        <!--Product List View Controller-->
         <scene sceneID="pFZ-lW-PoE">
             <objects>
-                <viewController id="fiS-HE-mzg" sceneMemberID="viewController">
+                <viewController id="fiS-HE-mzg" customClass="ProductListViewController" customModule="Example_ProductBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="baD-To-k9g"/>
                         <viewControllerLayoutGuide type="bottom" id="vMU-NO-o8A"/>
@@ -61,25 +62,67 @@
                     <view key="view" contentMode="scaleToFill" id="mBR-xZ-fv0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAW-wx-IKu">
-                                <rect key="frame" x="35" y="53" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Xg3-8D-qmw" kind="presentation" id="lis-9T-XcC"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8VB-gp-nXd">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menu" id="70S-v8-K4U">
+                            <connections>
+                                <segue destination="Xg3-8D-qmw" kind="presentation" identifier="HamburgerMenu" id="aFt-q6-reE"/>
+                            </connections>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="vbe-LF-Rab">
+                            <rect key="frame" x="78" y="5.5" width="143" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-kS-w1K">
+                                    <rect key="frame" x="9" y="-1.5" width="125" height="36"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="ZYc-kS-w1K" firstAttribute="centerX" secondItem="vbe-LF-Rab" secondAttribute="centerX" id="NHd-Ej-cb7"/>
+                                <constraint firstItem="ZYc-kS-w1K" firstAttribute="centerY" secondItem="vbe-LF-Rab" secondAttribute="centerY" id="jy2-3R-z6s"/>
+                            </constraints>
+                        </view>
+                        <rightBarButtonItems>
+                            <barButtonItem image="basket" id="ebi-g2-YEs"/>
+                            <barButtonItem image="wishlist" id="EFm-mk-WuS"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="hamburgerBarButton" destination="70S-v8-K4U" id="O1R-xf-7J1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZQ-EH-RlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338.5" y="366.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QLH-zk-gML">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="a0W-Ye-8fb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VnM-mb-U4c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fiS-HE-mzg" kind="relationship" relationship="rootViewController" id="xEh-8i-hIZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQh-yq-IV3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-248.5" y="366.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="basket" width="41" height="44"/>
+        <image name="logo" width="125" height="36"/>
+        <image name="menu" width="45" height="45"/>
         <image name="splash_screen_logo" width="143" height="42"/>
+        <image name="wishlist" width="50" height="50"/>
     </resources>
 </document>
