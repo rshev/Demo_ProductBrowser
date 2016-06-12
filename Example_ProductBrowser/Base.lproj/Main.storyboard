@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -62,7 +63,54 @@
                     <view key="view" contentMode="scaleToFill" id="mBR-xZ-fv0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_emptybag" translatesAutoresizingMaskIntoConstraints="NO" id="SCm-OP-Dex">
+                                <rect key="frame" x="16" y="252" width="343" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="Abh-kT-KI6"/>
+                                </constraints>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B4k-c2-OtT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F5e-Lm-6ri">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GlG-My-NFi">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SCm-OP-Dex" firstAttribute="centerX" secondItem="mBR-xZ-fv0" secondAttribute="centerX" id="1ik-G0-ewC"/>
+                            <constraint firstItem="vMU-NO-o8A" firstAttribute="top" secondItem="B4k-c2-OtT" secondAttribute="bottom" id="68Q-YT-SQ3"/>
+                            <constraint firstItem="SCm-OP-Dex" firstAttribute="leading" secondItem="mBR-xZ-fv0" secondAttribute="leadingMargin" id="KN2-3k-qND"/>
+                            <constraint firstItem="SCm-OP-Dex" firstAttribute="top" secondItem="B4k-c2-OtT" secondAttribute="bottom" id="KaS-d0-DcA"/>
+                            <constraint firstItem="B4k-c2-OtT" firstAttribute="top" secondItem="baD-To-k9g" secondAttribute="bottom" id="W5H-0m-Mgx"/>
+                            <constraint firstItem="SCm-OP-Dex" firstAttribute="centerY" secondItem="mBR-xZ-fv0" secondAttribute="centerY" id="cQ5-S2-DeA"/>
+                            <constraint firstItem="B4k-c2-OtT" firstAttribute="top" secondItem="baD-To-k9g" secondAttribute="bottom" id="edN-P1-QzY"/>
+                            <constraint firstItem="B4k-c2-OtT" firstAttribute="leading" secondItem="mBR-xZ-fv0" secondAttribute="leading" id="p0u-mT-4qV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SCm-OP-Dex" secondAttribute="trailing" id="vQG-VJ-blg"/>
+                            <constraint firstAttribute="trailing" secondItem="B4k-c2-OtT" secondAttribute="trailing" id="xab-e6-2Nm"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="W5H-0m-Mgx"/>
+                                <exclude reference="1ik-G0-ewC"/>
+                                <exclude reference="KaS-d0-DcA"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="8VB-gp-nXd">
                         <nil key="title"/>
@@ -72,11 +120,11 @@
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="vbe-LF-Rab">
-                            <rect key="frame" x="78" y="5.5" width="143" height="33"/>
+                            <rect key="frame" x="116" y="5.5" width="143" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-kS-w1K">
-                                    <rect key="frame" x="9" y="-1.5" width="125" height="36"/>
+                                    <rect key="frame" x="40.5" y="7.5" width="62" height="18"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -92,7 +140,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="hamburgerBarButton" destination="70S-v8-K4U" id="O1R-xf-7J1"/>
+                        <outlet property="collectionView" destination="B4k-c2-OtT" id="mu3-Id-WsJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZQ-EH-RlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -119,10 +167,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="basket" width="41" height="44"/>
-        <image name="logo" width="125" height="36"/>
-        <image name="menu" width="45" height="45"/>
+        <image name="basket" width="20" height="22"/>
+        <image name="image_emptybag" width="520" height="162"/>
+        <image name="logo" width="62" height="18"/>
+        <image name="menu" width="22" height="22"/>
         <image name="splash_screen_logo" width="143" height="42"/>
-        <image name="wishlist" width="50" height="50"/>
+        <image name="wishlist" width="25" height="25"/>
     </resources>
 </document>

@@ -10,12 +10,13 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
-    @IBOutlet weak var hamburgerBarButton: UIBarButtonItem!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     var selectedCategoryId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.hidden = true
 
         self.performSegueWithIdentifier(R.segue.productListViewController.hamburgerMenu.identifier, sender: self)
     }

@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                         // which will start to download sections asyncly
                                                         // even before the UI appears
         
+        UIBarButtonItem.appearance().tintColor = UIColor.blackColor()
+        UIButton.appearance().tintColor = UIColor.blackColor()
+        
         return true
     }
 
