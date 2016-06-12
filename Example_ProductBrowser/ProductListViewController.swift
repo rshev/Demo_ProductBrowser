@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import RxSwift
 
 class ProductListViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var selectedCategoryId: String?
+    weak var viewModel: ProductListViewModel?
+    
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +25,39 @@ class ProductListViewController: UIViewController {
     }
 
     @IBAction func unwindWithSelectedCategoryId(segue: UIStoryboardSegue) {
-        printl(selectedCategoryId)
-        
+        self.collectionView.hidden = true
+        viewModel?.requestCategoryDetails().subscribeNext({ [weak self] in
+            printl()
+            self?.collectionView.hidden = false
+            self?.collectionView.reloadData()
+        }).addDisposableTo(disposeBag)
     }
     
     
+    
+}
+
+extension ProductListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
+        let view = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: R.reuseIdentifier.header.identifier, forIndexPath: indexPath) as! HeaderCollectionReusableView
+        view.textLabel.text = viewModel?.getCategoryName()
+        return view
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.getProductsCount() ?? 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.productCell.identifier, forIndexPath: indexPath)
+        return cell
+    }
     
 }

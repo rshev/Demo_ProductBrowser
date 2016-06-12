@@ -11,6 +11,8 @@
 		6415E5011D0CBB690055E4CF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6415E5001D0CBB690055E4CF /* MenuViewController.swift */; };
 		6415E5071D0CCB8F0055E4CF /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6415E5061D0CCB8F0055E4CF /* MenuViewModel.swift */; };
 		6415E5091D0D722D0055E4CF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6415E5081D0D722D0055E4CF /* ProductListViewController.swift */; };
+		6415E50B1D0E11A50055E4CF /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6415E50A1D0E11A50055E4CF /* ProductListViewModel.swift */; };
+		6415E50D1D0E1A040055E4CF /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6415E50C1D0E1A040055E4CF /* HeaderCollectionReusableView.swift */; };
 		643872831D0C6D4A00563D39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872821D0C6D4A00563D39 /* AppDelegate.swift */; };
 		643872851D0C6D4A00563D39 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872841D0C6D4A00563D39 /* StartViewController.swift */; };
 		643872881D0C6D4A00563D39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 643872861D0C6D4A00563D39 /* Main.storyboard */; };
@@ -47,6 +49,8 @@
 		6415E5001D0CBB690055E4CF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		6415E5061D0CCB8F0055E4CF /* MenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
 		6415E5081D0D722D0055E4CF /* ProductListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		6415E50A1D0E11A50055E4CF /* ProductListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		6415E50C1D0E1A040055E4CF /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		6438727F1D0C6D4A00563D39 /* Example_ProductBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example_ProductBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		643872821D0C6D4A00563D39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		643872841D0C6D4A00563D39 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +111,17 @@
 			isa = PBXGroup;
 			children = (
 				6415E5061D0CCB8F0055E4CF /* MenuViewModel.swift */,
+				6415E50A1D0E11A50055E4CF /* ProductListViewModel.swift */,
 			);
 			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		6415E50E1D0E1A0D0055E4CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6415E50C1D0E1A040055E4CF /* HeaderCollectionReusableView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		643872761D0C6D4A00563D39 = {
@@ -140,6 +153,7 @@
 				647B2E461D0CAD3700337E48 /* Models */,
 				643872A21D0C747300563D39 /* Backend */,
 				643872821D0C6D4A00563D39 /* AppDelegate.swift */,
+				6415E50E1D0E1A0D0055E4CF /* Views */,
 				6415E5051D0CCB840055E4CF /* ViewModels */,
 				647B2E4C1D0CB49400337E48 /* ViewControllers */,
 				643872861D0C6D4A00563D39 /* Main.storyboard */,
@@ -439,7 +453,9 @@
 				643872B11D0C98A500563D39 /* CategoryDetails.swift in Sources */,
 				643872A61D0C751000563D39 /* Extensions.swift in Sources */,
 				643872A81D0C757500563D39 /* Backend.swift in Sources */,
+				6415E50D1D0E1A040055E4CF /* HeaderCollectionReusableView.swift in Sources */,
 				643872AD1D0C941100563D39 /* Category.swift in Sources */,
+				6415E50B1D0E11A50055E4CF /* ProductListViewModel.swift in Sources */,
 				647B2E4F1D0CB5C800337E48 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,7 @@ import Foundation
 protocol MenuViewModelDelegate: class {
     func menuRefreshListOfCategories()
     func menuSelectSectionNumber(num: Int)
-    func menuPassCategoryIdFurther(id: String)
+    func menuPassCategoryProductListViewModelFurther(viewModel: ProductListViewModel)
 }
 
 class MenuViewModel {
@@ -35,7 +35,8 @@ class MenuViewModel {
     }
 
     func selectCategoryAtRow(row: Int) {
-        delegate?.menuPassCategoryIdFurther(CatManager.sharedManager.sections[selectedSectionNumber].categories[row].id)
+        let category = CatManager.sharedManager.sections[selectedSectionNumber].categories[row]
+        delegate?.menuPassCategoryProductListViewModelFurther(ProductListViewModel(category: category))
     }
     
 }
