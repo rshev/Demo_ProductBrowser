@@ -25,7 +25,7 @@
                                 <rect key="frame" x="116" y="212" width="143" height="42"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AWu-34-M9j">
-                                <rect key="frame" x="178" y="304.5" width="20" height="20"/>
+                                <rect key="frame" x="178" y="304" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -88,6 +88,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="167" height="186"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="O94-Hj-pKe">
+                                                    <rect key="frame" x="73" y="74" width="20" height="20"/>
+                                                </activityIndicatorView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zeN-KM-17x">
                                                     <rect key="frame" x="8" y="8" width="151" height="151"/>
                                                     <constraints>
@@ -104,6 +107,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="O94-Hj-pKe" firstAttribute="centerY" secondItem="zeN-KM-17x" secondAttribute="centerY" id="BYA-Ge-IGN"/>
                                             <constraint firstItem="zeN-KM-17x" firstAttribute="top" secondItem="GlG-My-NFi" secondAttribute="topMargin" id="Ca0-yw-iNd"/>
                                             <constraint firstItem="BH8-kt-X8V" firstAttribute="bottom" secondItem="GlG-My-NFi" secondAttribute="bottomMargin" id="Tft-0b-PQN"/>
                                             <constraint firstItem="BH8-kt-X8V" firstAttribute="top" secondItem="zeN-KM-17x" secondAttribute="bottom" id="Zn4-KH-1Jn"/>
@@ -111,10 +115,12 @@
                                             <constraint firstItem="zeN-KM-17x" firstAttribute="trailing" secondItem="GlG-My-NFi" secondAttribute="trailingMargin" id="ezC-gO-t4b"/>
                                             <constraint firstItem="zeN-KM-17x" firstAttribute="leading" secondItem="GlG-My-NFi" secondAttribute="leadingMargin" id="fJB-se-QeG"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="BH8-kt-X8V" secondAttribute="trailing" id="p1W-V3-oyT"/>
+                                            <constraint firstItem="O94-Hj-pKe" firstAttribute="centerX" secondItem="zeN-KM-17x" secondAttribute="centerX" id="q99-hk-U7e"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="zeN-KM-17x" id="QW4-2N-0Se"/>
                                             <outlet property="priceLabel" destination="BH8-kt-X8V" id="IDI-Yl-WGY"/>
+                                            <outlet property="spinnerView" destination="O94-Hj-pKe" id="y92-cv-w8h"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

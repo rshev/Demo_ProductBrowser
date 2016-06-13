@@ -9,12 +9,15 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import AlamofireImage
 
 class ProductListViewModel {
     
     private var category: Category
     
     private let disposeBag = DisposeBag()
+    private let imageCache = AutoPurgingImageCache()
+    private let imageDownloader = ImageDownloader()
     
     init(category: Category) {
         self.category = category
@@ -38,7 +41,20 @@ class ProductListViewModel {
     }
     
     func getProductImage(index index: Int, completion: ((wasLocal: Bool, image: UIImage?)->Void)) {
+        guard let imageUrl = category.details?.products[index].imageUrl else { return }
+        let imageUrlRequest = NSURLRequest(URL: imageUrl)
         
+        if let image = imageCache.imageForRequest(imageUrlRequest) {
+            completion(wasLocal: true, image: image)
+            return
+        }
+        
+        imageDownloader.downloadImage(URLRequest: imageUrlRequest) { [weak self] (response) in
+            if let image = response.result.value {
+                completion(wasLocal: false, image: image)
+                self?.imageCache.addImage(image, forRequest: imageUrlRequest)
+            }
+        }
     }
     
     func getProductPrice(index index: Int) -> String {

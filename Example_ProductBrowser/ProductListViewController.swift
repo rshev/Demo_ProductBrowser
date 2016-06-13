@@ -65,6 +65,14 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.productCell.identifier, forIndexPath: indexPath) as! ProductCollectionViewCell
         cell.priceLabel.text = viewModel?.getProductPrice(index: indexPath.item)
+        viewModel?.getProductImage(index: indexPath.item, completion: { [weak cell] (wasLocal, image) in
+            if wasLocal {
+                cell?.setImage(image)
+            } else {
+                let cell = collectionView.cellForItemAtIndexPath(indexPath) as? ProductCollectionViewCell
+                cell?.setImage(image)
+            }
+        })
         return cell
     }
     
