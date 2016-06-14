@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="splash_screen_logo" translatesAutoresizingMaskIntoConstraints="NO" id="42O-5G-VPd">
+                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="splash_screen_logo" translatesAutoresizingMaskIntoConstraints="NO" id="42O-5G-VPd">
                                 <rect key="frame" x="116" y="212" width="143" height="42"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AWu-34-M9j">
@@ -74,6 +74,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B4k-c2-OtT">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F5e-Lm-6ri">
                                     <size key="itemSize" width="167" height="186"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -90,9 +91,11 @@
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="O94-Hj-pKe">
                                                     <rect key="frame" x="73" y="74" width="20" height="20"/>
+                                                    <gestureRecognizers/>
                                                 </activityIndicatorView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zeN-KM-17x">
                                                     <rect key="frame" x="8" y="8" width="151" height="151"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="zeN-KM-17x" secondAttribute="height" multiplier="1:1" id="FN0-Zi-E0l"/>
                                                     </constraints>
@@ -148,6 +151,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="fiS-HE-mzg" id="Lgq-o3-JSp"/>
                                     <outlet property="delegate" destination="fiS-HE-mzg" id="1Rf-hl-e5U"/>
+                                    <outletCollection property="gestureRecognizers" destination="VdN-Mt-wdL" appends="YES" id="chj-zz-sVf"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -204,6 +208,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZQ-EH-RlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer delaysTouchesBegan="YES" numberOfTapsRequired="2" id="VdN-Mt-wdL">
+                    <connections>
+                        <action selector="doubleTapRecognize:" destination="fiS-HE-mzg" id="t5j-1m-J07"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="338.5" y="366.5"/>
         </scene>

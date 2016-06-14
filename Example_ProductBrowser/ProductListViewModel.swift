@@ -61,4 +61,8 @@ class ProductListViewModel {
         return category.details?.products[index].formattedPrice ?? ""
     }
     
+    func triggerFavoriteForItem(index: Int) {
+        printl(index)
+    }
+    
 }

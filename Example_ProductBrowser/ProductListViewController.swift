@@ -40,7 +40,14 @@ class ProductListViewController: UIViewController {
         }).addDisposableTo(disposeBag)
     }
     
-    
+    @IBAction func doubleTapRecognize(sender: UITapGestureRecognizer) {
+        guard sender.state == .Ended else { return }
+        
+        let point = sender.locationInView(collectionView)
+        if let indexPath = collectionView.indexPathForItemAtPoint(point) {
+            viewModel?.triggerFavoriteForItem(indexPath.item)
+        }
+    }
     
 }
 
