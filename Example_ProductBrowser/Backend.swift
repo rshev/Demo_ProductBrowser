@@ -46,7 +46,7 @@ struct Backend {
         })
     }
     
-    static func requestProductDetails(productId id: String) -> Observable<ProductDetails> {
+    static func requestProductDetails(productId id: Int) -> Observable<ProductDetails> {
         return request(.GetProductDetails(productId: id)).flatMap({ (data) -> Observable<ProductDetails> in
             let productDetails: ProductDetails = try Unbox(data)
             return Observable.just(productDetails)
@@ -59,7 +59,7 @@ public enum BackendTarget {
     case GetCategoriesListMen
     case GetCategoriesListWomen
     case GetProductsInCategory(catId: String)
-    case GetProductDetails(productId: String)
+    case GetProductDetails(productId: Int)
 }
 
 extension BackendTarget: TargetType {
