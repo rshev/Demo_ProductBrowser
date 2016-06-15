@@ -28,7 +28,6 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.alpha = 0
-        viewModel?.delegate = self
 
         self.performSegueWithIdentifier(R.segue.productListViewController.hamburgerMenu.identifier, sender: self)
     }
@@ -53,7 +52,9 @@ class ProductListViewController: UIViewController {
     private var productDetailsViewModelToPassFurther: ProductDetailsViewModel?
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // segue
+        if let productDetailsViewController = segue.destinationViewController as? ProductDetailsViewController {
+            productDetailsViewController.viewModel = productDetailsViewModelToPassFurther
+        }
     }
 }
 
@@ -61,7 +62,7 @@ extension ProductListViewController: ProductListViewModelDelegate {
     
     func productPassProductDetailsViewModelFurther(viewModel: ProductDetailsViewModel) {
         productDetailsViewModelToPassFurther = viewModel
-        // segue
+        self.performSegueWithIdentifier(R.segue.productListViewController.productDetails.identifier, sender: self)
     }
     
 }
@@ -99,6 +100,9 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // set here because MenuVC sets ViewModel only after selecting a category
+        viewModel?.delegate = self
+
         viewModel?.productWasSelected(index: indexPath.item)
     }
     

@@ -53,6 +53,106 @@
             </objects>
             <point key="canvasLocation" x="710" y="-137"/>
         </scene>
+        <!--Product Details View Controller-->
+        <scene sceneID="3R8-L5-g5g">
+            <objects>
+                <viewController id="kZS-05-92c" customClass="ProductDetailsViewController" customModule="Example_ProductBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vfj-yL-tDH"/>
+                        <viewControllerLayoutGuide type="bottom" id="bew-mq-Qz0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QtE-2s-AYR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSz-KW-PZa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XUK-OW-orp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-pK-nnS">
+                                <rect key="frame" x="0.0" y="114" width="375" height="333.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rou-vc-84F">
+                                        <rect key="frame" x="0.0" y="0.0" width="658" height="333.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kgx-Os-89C">
+                                                <rect key="frame" x="0.0" y="0.0" width="47" height="333.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWd-Sq-adR">
+                                                <rect key="frame" x="62" y="0.0" width="83" height="333.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YVV-Je-klr">
+                                                <rect key="frame" x="153" y="-1" width="83" height="333.5"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nk2-8K-ueo">
+                                                <rect key="frame" x="251" y="0.0" width="83" height="333.5"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Kgx-Os-89C" secondAttribute="trailing" id="7D8-f5-aaA"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kgx-Os-89C" secondAttribute="bottom" id="Hje-bZ-seS"/>
+                                            <constraint firstItem="Kgx-Os-89C" firstAttribute="leading" secondItem="rou-vc-84F" secondAttribute="leading" id="Jie-EP-Gxc"/>
+                                            <constraint firstItem="Kgx-Os-89C" firstAttribute="top" secondItem="rou-vc-84F" secondAttribute="top" id="ivS-62-QtY"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rou-vc-84F" secondAttribute="trailing" id="0ul-NX-6N3"/>
+                                    <constraint firstItem="Kgx-Os-89C" firstAttribute="width" secondItem="2Ep-pK-nnS" secondAttribute="width" id="1Hs-jd-XdB"/>
+                                    <constraint firstItem="rou-vc-84F" firstAttribute="leading" secondItem="2Ep-pK-nnS" secondAttribute="leading" id="Nd2-D3-dQe"/>
+                                    <constraint firstItem="Kgx-Os-89C" firstAttribute="height" secondItem="2Ep-pK-nnS" secondAttribute="height" id="OAR-IE-BFk"/>
+                                    <constraint firstItem="rou-vc-84F" firstAttribute="top" secondItem="2Ep-pK-nnS" secondAttribute="top" id="Ok2-da-Nvh"/>
+                                    <constraint firstItem="rou-vc-84F" firstAttribute="leading" secondItem="2Ep-pK-nnS" secondAttribute="leading" id="P9r-bK-6s1"/>
+                                    <constraint firstItem="rou-vc-84F" firstAttribute="top" secondItem="2Ep-pK-nnS" secondAttribute="top" id="XGi-fl-ZRL"/>
+                                    <constraint firstItem="Kgx-Os-89C" firstAttribute="height" secondItem="2Ep-pK-nnS" secondAttribute="height" id="YFC-Bi-oOG"/>
+                                    <constraint firstAttribute="trailing" secondItem="rou-vc-84F" secondAttribute="trailing" id="YrV-Mx-GfL"/>
+                                    <constraint firstAttribute="bottom" secondItem="rou-vc-84F" secondAttribute="bottom" id="aqL-tF-aTY"/>
+                                    <constraint firstItem="Kgx-Os-89C" firstAttribute="width" secondItem="2Ep-pK-nnS" secondAttribute="width" id="b6A-bo-Hp1"/>
+                                    <constraint firstAttribute="bottom" secondItem="rou-vc-84F" secondAttribute="bottom" id="krR-64-0Gn"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ok2-da-Nvh"/>
+                                        <exclude reference="P9r-bK-6s1"/>
+                                        <exclude reference="YrV-Mx-GfL"/>
+                                        <exclude reference="krR-64-0Gn"/>
+                                        <exclude reference="1Hs-jd-XdB"/>
+                                        <exclude reference="OAR-IE-BFk"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Ep-pK-nnS" secondAttribute="trailing" id="3iu-2N-0XL"/>
+                            <constraint firstItem="2Ep-pK-nnS" firstAttribute="leading" secondItem="QtE-2s-AYR" secondAttribute="leading" id="3wW-mY-WXh"/>
+                            <constraint firstItem="xSz-KW-PZa" firstAttribute="top" secondItem="Vfj-yL-tDH" secondAttribute="bottom" id="67U-Df-ygo"/>
+                            <constraint firstItem="xSz-KW-PZa" firstAttribute="leading" secondItem="QtE-2s-AYR" secondAttribute="leading" id="7ly-9o-GaG"/>
+                            <constraint firstItem="2Ep-pK-nnS" firstAttribute="top" secondItem="xSz-KW-PZa" secondAttribute="bottom" id="Fv8-ex-4lB"/>
+                            <constraint firstItem="2Ep-pK-nnS" firstAttribute="height" secondItem="QtE-2s-AYR" secondAttribute="height" multiplier="0.5" id="Ohd-88-muX"/>
+                            <constraint firstItem="rou-vc-84F" firstAttribute="width" secondItem="QtE-2s-AYR" secondAttribute="width" id="SWG-Fu-F0t"/>
+                            <constraint firstAttribute="trailing" secondItem="xSz-KW-PZa" secondAttribute="trailing" id="VC3-jC-nWP"/>
+                            <constraint firstItem="rou-vc-84F" firstAttribute="width" secondItem="QtE-2s-AYR" secondAttribute="width" id="dc4-Mv-Fju"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SWG-Fu-F0t"/>
+                                <exclude reference="dc4-Mv-Fju"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oFe-Xh-VcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="821.5" y="366.5"/>
+        </scene>
         <!--Product List View Controller-->
         <scene sceneID="pFZ-lW-PoE">
             <objects>
@@ -205,6 +305,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="B4k-c2-OtT" id="mu3-Id-WsJ"/>
+                        <segue destination="kZS-05-92c" kind="show" identifier="ProductDetails" id="c1c-m2-OS9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZQ-EH-RlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
