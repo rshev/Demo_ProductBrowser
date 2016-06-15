@@ -28,6 +28,7 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.alpha = 0
+        viewModel?.delegate = self
 
         self.performSegueWithIdentifier(R.segue.productListViewController.hamburgerMenu.identifier, sender: self)
     }
@@ -47,6 +48,20 @@ class ProductListViewController: UIViewController {
         if let indexPath = collectionView.indexPathForItemAtPoint(point) {
             viewModel?.triggerFavoriteForItem(indexPath.item)
         }
+    }
+    
+    private var productDetailsViewModelToPassFurther: ProductDetailsViewModel?
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // segue
+    }
+}
+
+extension ProductListViewController: ProductListViewModelDelegate {
+    
+    func productPassProductDetailsViewModelFurther(viewModel: ProductDetailsViewModel) {
+        productDetailsViewModelToPassFurther = viewModel
+        // segue
     }
     
 }
@@ -81,6 +96,10 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
             }
         })
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        viewModel?.productWasSelected(index: indexPath.item)
     }
     
 }

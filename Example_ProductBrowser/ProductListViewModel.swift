@@ -11,6 +11,10 @@ import RxSwift
 import RxCocoa
 import AlamofireImage
 
+protocol ProductListViewModelDelegate: class {
+    func productPassProductDetailsViewModelFurther(viewModel: ProductDetailsViewModel)
+}
+
 class ProductListViewModel {
     
     private var category: Category
@@ -18,6 +22,8 @@ class ProductListViewModel {
     private let disposeBag = DisposeBag()
     private let imageCache = AutoPurgingImageCache()
     private let imageDownloader = ImageDownloader()
+    
+    weak var delegate: ProductListViewModelDelegate?
     
     init(category: Category) {
         self.category = category
@@ -63,6 +69,12 @@ class ProductListViewModel {
     
     func triggerFavoriteForItem(index: Int) {
         printl(index)
+    }
+    
+    func productWasSelected(index index: Int) {
+        guard let product = category.details?.products[index] else { return }
+        let productDetailsViewModel = ProductDetailsViewModel(product: product)
+        delegate?.productPassProductDetailsViewModelFurther(productDetailsViewModel)
     }
     
 }
