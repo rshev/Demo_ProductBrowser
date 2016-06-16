@@ -35,6 +35,21 @@ class ProductDetailsViewController: UIViewController {
             }).addDisposableTo(disposeBag)
     }
 
+    var lastBounds = CGRectZero
+    
+    // logic to make paginated scrollView stay on the same page when rotating the device
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard lastBounds != self.view.bounds else { return }
+        
+        let lastBoundsWidth = lastBounds.width > 0 ? lastBounds.width : 1               // do not divide by zero
+        let lastPage = ceil(imagesScrollView.contentOffset.x / lastBoundsWidth)
+        let newPageOffset = CGPoint(x: lastPage * self.view.bounds.width, y: 0)
+        imagesScrollView.setContentOffset(newPageOffset, animated: false)
+        
+        lastBounds = self.view.bounds
+    }
+    
     func renderDetails() {
         guard let viewModel = viewModel else { return }
         
