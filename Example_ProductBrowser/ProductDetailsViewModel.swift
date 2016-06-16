@@ -64,8 +64,8 @@ class ProductDetailsViewModel {
         }
     }
     
-    func getProductPrice() -> String {
-        return product.formattedPrice
+    func getProductBagPriceButtonFormatted() -> String {
+        return "Add to Bag (\(product.formattedPrice))"
     }
     
     func addProductToBag() {

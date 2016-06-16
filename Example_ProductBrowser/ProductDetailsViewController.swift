@@ -14,6 +14,8 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var imagesScrollView: UIScrollView!
     @IBOutlet weak var imagesContentView: UIView!
     @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var bagButton: UIButton!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     
     weak var viewModel: ProductDetailsViewModel?
@@ -24,6 +26,7 @@ class ProductDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setContentVisible(false, animated: false)
 
         viewModel?.requestCategoryDetails().observeOn(MainScheduler.instance)
             .subscribeNext({ [weak self] in
@@ -35,8 +38,10 @@ class ProductDetailsViewController: UIViewController {
     func renderDetails() {
         guard let viewModel = viewModel else { return }
         
-        spinnerView.stopAnimating()
+        setContentVisible(true, animated: true)
         brandLabel.text = viewModel.getProductBrand()
+        descTextView.text = viewModel.getProductDescription()
+        refreshButtonText()
         
         let imageCount = viewModel.getProductImagesCount()
         for index in 0..<imageCount {
@@ -75,9 +80,25 @@ class ProductDetailsViewController: UIViewController {
             })
         }
         
-        
-        
     }
     
+    func setContentVisible(newValue: Bool, animated: Bool) {
+        let newAlpha: CGFloat = newValue ? 1 : 0
+        let action = { [weak self] in
+            self?.imagesScrollView.alpha = newAlpha
+            self?.brandLabel.alpha = newAlpha
+            self?.descTextView.alpha = newAlpha
+            self?.bagButton.alpha = newAlpha
+        }
+        _ = animated ? UIView.animateWithDuration(0.5, animations: action) : action()
+        _ = newValue ? spinnerView.stopAnimating() : spinnerView.startAnimating()
+    }
+    
+    func refreshButtonText() {
+        bagButton.setTitle(viewModel?.getProductBagPriceButtonFormatted(), forState: .Normal)
+    }
+    
+    @IBAction func bagTap() {
+    }
     
 }
