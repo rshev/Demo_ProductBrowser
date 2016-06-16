@@ -22,8 +22,8 @@ class CatManager {
     var sections: [Section] {
         return _sections.value
     }
-    var sections$: Driver<[Section]> {
-        return _sections.asDriver()
+    var sections$: Observable<[Section]> {
+        return _sections.asObservable()
     }
     
     private func requestSections() {

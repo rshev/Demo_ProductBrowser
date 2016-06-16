@@ -55,7 +55,10 @@ class ProductDetailsViewModel {
         
         imageDownloader.downloadImage(URLRequest: imageUrlRequest) { [weak self] (response) in
             if let image = response.result.value {
-                completion(wasLocal: false, image: image)
+                // minding that we could be not on the main queue after image download here
+                NSOperationQueue.mainQueue().addOperationWithBlock({ 
+                    completion(wasLocal: false, image: image)
+                })
                 self?.imageCache.addImage(image, forRequest: imageUrlRequest)
             }
         }

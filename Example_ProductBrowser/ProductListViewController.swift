@@ -34,7 +34,9 @@ class ProductListViewController: UIViewController {
 
     @IBAction func unwindWithSelectedCategoryId(segue: UIStoryboardSegue) {
         collectionViewVisible = false
-        viewModel?.requestCategoryDetails().subscribeNext({ [weak self] in
+        viewModel?.requestCategoryDetails().observeOn(MainScheduler.instance)
+            .subscribeNext({ [weak self] in
+                
             self?.collectionViewVisible = true
             self?.collectionView.reloadData()
         }).addDisposableTo(disposeBag)

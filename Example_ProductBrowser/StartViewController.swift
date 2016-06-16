@@ -17,7 +17,9 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CatManager.sharedManager.sections$.driveNext { [weak self] (sections) in
+        CatManager.sharedManager.sections$.observeOn(MainScheduler.instance)
+            .subscribeNext { [weak self] (sections) in
+                
             guard sections.count > 1 else { return }
             self?.performSegueWithIdentifier(R.segue.startViewController.startToMain.identifier, sender: self)
         }.addDisposableTo(disposeBag)
