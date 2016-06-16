@@ -58,6 +58,9 @@ class ProductListViewController: UIViewController {
             productDetailsViewController.viewModel = productDetailsViewModelToPassFurther
         }
     }
+    
+    @IBAction func unwindFromProductDetailsToProductList(segue: UIStoryboardSegue) {}
+    
 }
 
 extension ProductListViewController: ProductListViewModelDelegate {

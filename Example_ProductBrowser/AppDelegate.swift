@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = CatManager.sharedManager                    // init CatManager
                                                         // which will start to download sections asyncly
                                                         // even before the UI appears
-        
-        UIBarButtonItem.appearance().tintColor = UIColor.blackColor()
-        UIButton.appearance().tintColor = UIColor.blackColor()
+
+        // changing default tintColor for entire app to black
+        UIView.appearance().tintColor = UIColor.blackColor()
         
         return true
     }
