@@ -6,7 +6,6 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Start View Controller-->
@@ -160,10 +159,7 @@
                                 <constraint firstItem="7vG-r5-KsN" firstAttribute="centerX" secondItem="uAa-hu-eDO" secondAttribute="centerX" id="p21-TE-Gdk"/>
                             </constraints>
                         </view>
-                        <rightBarButtonItems>
-                            <barButtonItem image="basket" id="Af8-pd-HLC"/>
-                            <barButtonItem image="wishlist" id="XUf-pD-Bhi"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="XUf-pD-Bhi"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -325,10 +321,7 @@
                                 <constraint firstItem="ZYc-kS-w1K" firstAttribute="centerY" secondItem="vbe-LF-Rab" secondAttribute="centerY" id="jy2-3R-z6s"/>
                             </constraints>
                         </view>
-                        <rightBarButtonItems>
-                            <barButtonItem image="basket" id="ebi-g2-YEs"/>
-                            <barButtonItem image="wishlist" id="EFm-mk-WuS"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="EFm-mk-WuS"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -366,7 +359,6 @@
     </scenes>
     <resources>
         <image name="back" width="18" height="18"/>
-        <image name="basket" width="20" height="22"/>
         <image name="image_emptybag" width="520" height="162"/>
         <image name="logo" width="62" height="18"/>
         <image name="menu" width="22" height="22"/>

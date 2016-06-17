@@ -48,6 +48,11 @@ class ProductDetailsViewController: UIViewController {
             let newOffset = CGPoint(x: CGFloat(strongSelf.pageControl.currentPage) * strongSelf.view.bounds.width, y: 0)
             strongSelf.imagesScrollView.setContentOffset(newOffset, animated: true)
         }.addDisposableTo(disposeBag)
+        
+        let bagBarButtonItem = UIBarButtonItem(customView: BagBarButtonItemView())
+        var rightButtonItems = navigationItem.rightBarButtonItems ?? []
+        rightButtonItems.append(bagBarButtonItem)
+        navigationItem.setRightBarButtonItems(rightButtonItems, animated: false)
     }
 
     var lastBounds = CGRectZero
