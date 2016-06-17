@@ -35,7 +35,8 @@ class BagManager {
     
     func getFormattedBagContents() -> String {
         // mapping a dictionary gives a (Key, Value) tuple, produce an array and then join it with a newline
-        return bagContents.map({ (element: (product: Product, count: Int)) -> String in
+        return "count=\(_bagItemsCount.value)\n" + bagContents.map({ (element: (product: Product, count: Int)) -> String in
+            
             return "id=\(element.product.id), quantity=\(element.count)"
         }).joinWithSeparator("\n")
     }

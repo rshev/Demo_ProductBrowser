@@ -28,7 +28,7 @@
 		643872AF1D0C964A00563D39 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872AE1D0C964A00563D39 /* Product.swift */; };
 		643872B11D0C98A500563D39 /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872B01D0C98A500563D39 /* CategoryDetails.swift */; };
 		643872B31D0CA28700563D39 /* ProductDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643872B21D0CA28700563D39 /* ProductDetails.swift */; };
-		646681B41D1402F400580764 /* BagBarButtonItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646681B31D1402F400580764 /* BagBarButtonItemView.swift */; };
+		64459FEB1D141E76003D63BD /* BagBarButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64459FEA1D141E76003D63BD /* BagBarButtonHelper.swift */; };
 		646681B61D14033E00580764 /* BagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646681B51D14033E00580764 /* BagManager.swift */; };
 		647B2E481D0CAD5E00337E48 /* CatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647B2E471D0CAD5E00337E48 /* CatManager.swift */; };
 		647B2E4F1D0CB5C800337E48 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647B2E4E1D0CB5C800337E48 /* R.generated.swift */; };
@@ -75,7 +75,7 @@
 		643872AE1D0C964A00563D39 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		643872B01D0C98A500563D39 /* CategoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
 		643872B21D0CA28700563D39 /* ProductDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetails.swift; sourceTree = "<group>"; };
-		646681B31D1402F400580764 /* BagBarButtonItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BagBarButtonItemView.swift; sourceTree = "<group>"; };
+		64459FEA1D141E76003D63BD /* BagBarButtonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BagBarButtonHelper.swift; sourceTree = "<group>"; };
 		646681B51D14033E00580764 /* BagManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BagManager.swift; sourceTree = "<group>"; };
 		647B2E471D0CAD5E00337E48 /* CatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatManager.swift; sourceTree = "<group>"; };
 		647B2E4E1D0CB5C800337E48 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -132,7 +132,7 @@
 			children = (
 				6415E50C1D0E1A040055E4CF /* HeaderCollectionReusableView.swift */,
 				6415E50F1D0E1DAD0055E4CF /* ProductCollectionViewCell.swift */,
-				646681B31D1402F400580764 /* BagBarButtonItemView.swift */,
+				64459FEA1D141E76003D63BD /* BagBarButtonHelper.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -468,8 +468,8 @@
 				6415E5091D0D722D0055E4CF /* ProductListViewController.swift in Sources */,
 				643872AB1D0C933900563D39 /* Section.swift in Sources */,
 				6415E5011D0CBB690055E4CF /* MenuViewController.swift in Sources */,
+				64459FEB1D141E76003D63BD /* BagBarButtonHelper.swift in Sources */,
 				643872B11D0C98A500563D39 /* CategoryDetails.swift in Sources */,
-				646681B41D1402F400580764 /* BagBarButtonItemView.swift in Sources */,
 				643872A61D0C751000563D39 /* Extensions.swift in Sources */,
 				643872A81D0C757500563D39 /* Backend.swift in Sources */,
 				6415E50D1D0E1A040055E4CF /* HeaderCollectionReusableView.swift in Sources */,

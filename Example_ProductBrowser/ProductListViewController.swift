@@ -25,11 +25,16 @@ class ProductListViewController: UIViewController {
         }
     }
     
+    // should be retained here for button actions to work properly
+    var bagBarButtonHelper: BagBarButtonHelper?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.alpha = 0
 
         self.performSegueWithIdentifier(R.segue.productListViewController.hamburgerMenu.identifier, sender: self)
+        
+        bagBarButtonHelper = BagBarButtonHelper(navigationItemToManage: self.navigationItem)
     }
 
     @IBAction func unwindWithSelectedCategoryId(segue: UIStoryboardSegue) {

@@ -25,6 +25,9 @@ class ProductDetailsViewController: UIViewController {
     
     var imageViews: [UIImageView] = []
     
+    // should be retained here for button actions to work properly
+    var bagBarButtonHelper: BagBarButtonHelper?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setContentVisible(false, animated: false)
@@ -49,10 +52,7 @@ class ProductDetailsViewController: UIViewController {
             strongSelf.imagesScrollView.setContentOffset(newOffset, animated: true)
         }.addDisposableTo(disposeBag)
         
-        let bagBarButtonItem = UIBarButtonItem(customView: BagBarButtonItemView())
-        var rightButtonItems = navigationItem.rightBarButtonItems ?? []
-        rightButtonItems.append(bagBarButtonItem)
-        navigationItem.setRightBarButtonItems(rightButtonItems, animated: false)
+        bagBarButtonHelper = BagBarButtonHelper(navigationItemToManage: self.navigationItem)
     }
 
     var lastBounds = CGRectZero
