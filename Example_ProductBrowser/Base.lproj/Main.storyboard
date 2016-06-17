@@ -82,7 +82,7 @@
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TqB-dr-eFw">
                                                 <rect key="frame" x="177" y="10" width="20" height="20"/>
                                             </activityIndicatorView>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-pK-nnS">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ep-pK-nnS" customClass="PagedScrollView" customModule="Example_ProductBrowser" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="40" width="375" height="301.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rou-vc-84F">
