@@ -44,14 +44,6 @@
             </objects>
             <point key="canvasLocation" x="-726.5" y="366.5"/>
         </scene>
-        <!--HamburgerMenu-->
-        <scene sceneID="iaj-0i-JJk">
-            <objects>
-                <viewControllerPlaceholder storyboardName="HamburgerMenu" id="Xg3-8D-qmw" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S5N-S3-uSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="710" y="-137"/>
-        </scene>
         <!--Product Details View Controller-->
         <scene sceneID="3R8-L5-g5g">
             <objects>
@@ -344,7 +336,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="menu" id="70S-v8-K4U">
                             <connections>
-                                <segue destination="Xg3-8D-qmw" kind="presentation" identifier="HamburgerMenu" id="aFt-q6-reE"/>
+                                <action selector="hamburgerTap:" destination="fiS-HE-mzg" id="oT4-QP-9Bd"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="vbe-LF-Rab">

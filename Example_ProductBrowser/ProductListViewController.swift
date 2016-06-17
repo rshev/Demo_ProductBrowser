@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import SideMenu
 
 class ProductListViewController: UIViewController {
 
@@ -32,11 +33,23 @@ class ProductListViewController: UIViewController {
         super.viewDidLoad()
         collectionView.alpha = 0
 
-        self.performSegueWithIdentifier(R.segue.productListViewController.hamburgerMenu.identifier, sender: self)
+        self.hamburgerTap(nil)
         
         bagBarButtonHelper = BagBarButtonHelper(viewControllerWithNavigationItem: self)
     }
 
+    let hamburgerNavigationController: UISideMenuNavigationController = {
+        let vc = R.storyboard.hamburgerMenu.initialViewController()!         // force unwrap here only because R.Swift generates a list of resources at build time. It won't compile if there will be no storyboard or viewController there.
+        vc.leftSide = true
+        SideMenuManager.menuLeftNavigationController = vc
+        return vc
+    }()
+    
+    @IBAction func hamburgerTap(sender: AnyObject?) {
+        hamburgerNavigationController.leftSide = true
+        self.presentViewController(hamburgerNavigationController, animated: true, completion: nil)
+    }
+    
     @IBAction func unwindWithSelectedCategoryId(segue: UIStoryboardSegue) {
         collectionViewVisible = false
         viewModel?.requestCategoryDetails().observeOn(MainScheduler.instance)

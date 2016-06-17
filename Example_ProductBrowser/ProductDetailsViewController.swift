@@ -54,8 +54,6 @@ class ProductDetailsViewController: UIViewController {
         
         bagBarButtonHelper = BagBarButtonHelper(viewControllerWithNavigationItem: self)
     }
-
-    var lastBounds = CGRectZero
     
     func renderDetails() {
         guard let viewModel = viewModel else { return }
