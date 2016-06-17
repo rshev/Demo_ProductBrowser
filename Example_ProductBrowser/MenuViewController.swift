@@ -11,8 +11,8 @@ import SideMenu
 
 class MenuViewController: UIViewController {
 
-    @IBOutlet weak var buttonLeft: UIButton!
-    @IBOutlet weak var buttonRight: UIButton!
+    @IBOutlet weak var buttonLeft: SelectableButton!
+    @IBOutlet weak var buttonRight: SelectableButton!
     @IBOutlet weak var tableView: UITableView!
 
     private let viewModel = MenuViewModel()
@@ -25,7 +25,7 @@ class MenuViewController: UIViewController {
         
         buttonLeft.setTitle(viewModel.sectionNames[0], forState: .Normal)
         buttonRight.setTitle(viewModel.sectionNames[1], forState: .Normal)
-        
+        buttonLeft.underlined = true
     }
 
     @IBAction func buttonLeftTap(sender: AnyObject) {
@@ -54,7 +54,8 @@ extension MenuViewController: MenuViewModelDelegate {
     }
     
     func menuSelectSectionNumber(num: Int) {
-        //
+        buttonLeft.underlined = num == 0
+        buttonRight.underlined = num == 1
     }
     
     func menuPassCategoryProductListViewModelFurther(viewModel: ProductListViewModel) {
