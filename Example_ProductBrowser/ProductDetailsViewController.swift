@@ -14,7 +14,7 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var imagesScrollView: UIScrollView!
     @IBOutlet weak var imagesContentView: UIView!
     @IBOutlet weak var brandLabel: UILabel!
-    @IBOutlet weak var descTextView: UITextView!
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var bagButton: UIButton!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -75,7 +75,7 @@ class ProductDetailsViewController: UIViewController {
         
         setContentVisible(true, animated: true)
         brandLabel.text = viewModel.getProductBrand()
-        descTextView.text = viewModel.getProductDescription()
+        descLabel.text = viewModel.getProductDescription()
         refreshButtonText()
         
         let imageCount = viewModel.getProductImagesCount()
@@ -123,7 +123,7 @@ class ProductDetailsViewController: UIViewController {
         let action = { [weak self] in
             self?.imagesScrollView.alpha = newAlpha
             self?.brandLabel.alpha = newAlpha
-            self?.descTextView.alpha = newAlpha
+            self?.descLabel.alpha = newAlpha
             self?.bagButton.alpha = newAlpha
         }
         _ = animated ? UIView.animateWithDuration(0.5, animations: action) : action()
