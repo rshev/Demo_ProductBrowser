@@ -91,6 +91,9 @@
                                     <constraint firstItem="rou-vc-84F" firstAttribute="width" secondItem="2Ep-pK-nnS" secondAttribute="width" priority="250" id="ydr-OO-ML1"/>
                                 </constraints>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="v6d-pf-7VB">
+                                <rect key="frame" x="168" y="410.5" width="39" height="37"/>
+                            </pageControl>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="TqB-dr-eFw">
                                 <rect key="frame" x="177" y="79" width="20" height="20"/>
                             </activityIndicatorView>
@@ -108,7 +111,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lVj-Ka-vWk">
-                                <rect key="frame" x="16" y="447.5" width="343" height="169.5"/>
+                                <rect key="frame" x="16" y="447" width="343" height="169.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -119,6 +122,7 @@
                             <constraint firstAttribute="trailing" secondItem="2Ep-pK-nnS" secondAttribute="trailing" id="3iu-2N-0XL"/>
                             <constraint firstItem="2Ep-pK-nnS" firstAttribute="leading" secondItem="QtE-2s-AYR" secondAttribute="leading" id="3wW-mY-WXh"/>
                             <constraint firstItem="xSz-KW-PZa" firstAttribute="top" secondItem="Vfj-yL-tDH" secondAttribute="bottom" id="67U-Df-ygo"/>
+                            <constraint firstItem="v6d-pf-7VB" firstAttribute="bottom" secondItem="2Ep-pK-nnS" secondAttribute="bottom" id="6kG-cU-3BV"/>
                             <constraint firstAttribute="trailing" secondItem="445-aF-0oA" secondAttribute="trailing" id="74R-lN-tdR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lVj-Ka-vWk" secondAttribute="trailing" id="7Z3-uE-wJZ"/>
                             <constraint firstItem="xSz-KW-PZa" firstAttribute="leading" secondItem="QtE-2s-AYR" secondAttribute="leading" id="7ly-9o-GaG"/>
@@ -129,6 +133,7 @@
                             <constraint firstItem="2Ep-pK-nnS" firstAttribute="top" secondItem="xSz-KW-PZa" secondAttribute="bottom" id="Fv8-ex-4lB"/>
                             <constraint firstItem="2Ep-pK-nnS" firstAttribute="height" secondItem="QtE-2s-AYR" secondAttribute="height" multiplier="0.5" id="Ohd-88-muX"/>
                             <constraint firstItem="445-aF-0oA" firstAttribute="top" secondItem="lVj-Ka-vWk" secondAttribute="bottom" id="TZ1-Ij-G8Z"/>
+                            <constraint firstItem="v6d-pf-7VB" firstAttribute="centerX" secondItem="2Ep-pK-nnS" secondAttribute="centerX" id="Tg9-OQ-lRV"/>
                             <constraint firstAttribute="trailing" secondItem="xSz-KW-PZa" secondAttribute="trailing" id="VC3-jC-nWP"/>
                             <constraint firstItem="445-aF-0oA" firstAttribute="leading" secondItem="QtE-2s-AYR" secondAttribute="leading" id="xrP-73-r30"/>
                             <constraint firstItem="TqB-dr-eFw" firstAttribute="centerY" secondItem="xSz-KW-PZa" secondAttribute="centerY" id="yGQ-F0-bPM"/>
@@ -167,6 +172,7 @@
                         <outlet property="descTextView" destination="lVj-Ka-vWk" id="HFU-Yq-htQ"/>
                         <outlet property="imagesContentView" destination="rou-vc-84F" id="x4A-Wy-mtv"/>
                         <outlet property="imagesScrollView" destination="2Ep-pK-nnS" id="aeh-lu-0c2"/>
+                        <outlet property="pageControl" destination="v6d-pf-7VB" id="cnP-Kx-8m8"/>
                         <outlet property="spinnerView" destination="TqB-dr-eFw" id="tf3-Jr-js0"/>
                     </connections>
                 </viewController>

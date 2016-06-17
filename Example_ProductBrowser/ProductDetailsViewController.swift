@@ -17,6 +17,7 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var descTextView: UITextView!
     @IBOutlet weak var bagButton: UIButton!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     weak var viewModel: ProductDetailsViewModel?
     
@@ -28,11 +29,25 @@ class ProductDetailsViewController: UIViewController {
         super.viewDidLoad()
         setContentVisible(false, animated: false)
 
+        // wait for viewModel's signal when its ready to render content
         viewModel?.requestCategoryDetails().observeOn(MainScheduler.instance)
             .subscribeNext({ [weak self] in
                 
                 self?.renderDetails()
             }).addDisposableTo(disposeBag)
+        
+        // set pageControl currentPage depending on scrollView's offset
+        imagesScrollView.rx_contentOffset.subscribeNext { [weak self] (point) in
+            guard let strongSelf = self else { return }
+            strongSelf.pageControl.currentPage = Int(round(point.x / strongSelf.view.bounds.width))
+        }.addDisposableTo(disposeBag)
+        
+        // change scrollView offset if pageControl was tapped 
+        pageControl.rx_controlEvent(.ValueChanged).subscribeNext { [weak self] in
+            guard let strongSelf = self else { return }
+            let newOffset = CGPoint(x: CGFloat(strongSelf.pageControl.currentPage) * strongSelf.view.bounds.width, y: 0)
+            strongSelf.imagesScrollView.setContentOffset(newOffset, animated: true)
+        }.addDisposableTo(disposeBag)
     }
 
     var lastBounds = CGRectZero
@@ -59,6 +74,7 @@ class ProductDetailsViewController: UIViewController {
         refreshButtonText()
         
         let imageCount = viewModel.getProductImagesCount()
+        pageControl.numberOfPages = imageCount
         for index in 0..<imageCount {
             
             let imageView = UIImageView()
