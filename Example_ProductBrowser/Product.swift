@@ -9,7 +9,8 @@
 import Foundation
 import Unbox
 
-struct Product: Unboxable {
+// conforming to Hashable protocol here to be able to be included in dictionaries (like in BagManager)
+struct Product: Unboxable, Hashable {
     
     let id: Int
     let title: String
@@ -39,4 +40,13 @@ struct Product: Unboxable {
         details = productDetails
     }
 
+    var hashValue: Int {
+        return id
+    }
+    
+}
+
+// required to conform to Equatable protocol (which is required by Hashable protocol)
+func ==(lhs: Product, rhs: Product) -> Bool {
+    return lhs.id == rhs.id
 }
