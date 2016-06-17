@@ -11,12 +11,12 @@ import RxSwift
 
 class BagBarButtonHelper {
     
-    private weak var navItem: UINavigationItem?
+    private weak var viewControllerToManage: UIViewController?
     
     private weak var currentBarItem: UIBarButtonItem?
     
-    init(navigationItemToManage: UINavigationItem) {
-        self.navItem = navigationItemToManage
+    init(viewControllerWithNavigationItem: UIViewController) {
+        self.viewControllerToManage = viewControllerWithNavigationItem
         
         BagManager.sharedManager.bagItemsCount$.observeOn(MainScheduler.instance).subscribeNext { [weak self] (count) in
             
@@ -33,9 +33,9 @@ class BagBarButtonHelper {
         let newImage = renderNewImage(text: text)
         let newBarItem = UIBarButtonItem(image: newImage, style: .Plain, target: self, action: #selector(self.buttonTap))
         
-        var newBarItems = navItem?.rightBarButtonItems?.filter({ $0 !== self.currentBarItem })
+        var newBarItems = viewControllerToManage?.navigationItem.rightBarButtonItems?.filter({ $0 !== self.currentBarItem })
         newBarItems?.insert(newBarItem, atIndex: 0)
-        navItem?.setRightBarButtonItems(newBarItems, animated: true)
+        viewControllerToManage?.navigationItem.setRightBarButtonItems(newBarItems, animated: true)
         
         currentBarItem = newBarItem
     }
@@ -65,7 +65,9 @@ class BagBarButtonHelper {
     }()
 
     @objc func buttonTap() {
-        printl(BagManager.sharedManager.getFormattedBagContents())
+        let alertController = UIAlertController(title: "Bag contents", message: BagManager.sharedManager.getFormattedBagContents(), preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        viewControllerToManage?.presentViewController(alertController, animated: true, completion: nil)
     }
     
 }

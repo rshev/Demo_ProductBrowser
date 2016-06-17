@@ -69,7 +69,7 @@ class ProductDetailsViewModel {
     }
     
     func addProductToBag() {
-        printl(index)
+        BagManager.sharedManager.addProductToBag(product)
     }
     
 }

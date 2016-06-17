@@ -52,7 +52,7 @@ class ProductDetailsViewController: UIViewController {
             strongSelf.imagesScrollView.setContentOffset(newOffset, animated: true)
         }.addDisposableTo(disposeBag)
         
-        bagBarButtonHelper = BagBarButtonHelper(navigationItemToManage: self.navigationItem)
+        bagBarButtonHelper = BagBarButtonHelper(viewControllerWithNavigationItem: self)
     }
 
     var lastBounds = CGRectZero
@@ -135,6 +135,7 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @IBAction func bagTap() {
+        viewModel?.addProductToBag()
     }
     
 }

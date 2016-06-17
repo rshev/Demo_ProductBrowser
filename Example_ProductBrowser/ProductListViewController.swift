@@ -34,7 +34,7 @@ class ProductListViewController: UIViewController {
 
         self.performSegueWithIdentifier(R.segue.productListViewController.hamburgerMenu.identifier, sender: self)
         
-        bagBarButtonHelper = BagBarButtonHelper(navigationItemToManage: self.navigationItem)
+        bagBarButtonHelper = BagBarButtonHelper(viewControllerWithNavigationItem: self)
     }
 
     @IBAction func unwindWithSelectedCategoryId(segue: UIStoryboardSegue) {
