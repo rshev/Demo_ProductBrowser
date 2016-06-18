@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 
 func printl(message: Any? = nil, filename: String = #file, line: Int = #line, function: String = #function) {
     #if DEBUG
@@ -18,27 +17,4 @@ func printl(message: Any? = nil, filename: String = #file, line: Int = #line, fu
             print("")
         }
     #endif
-}
-
-
-extension Array {
-    
-    subscript (safe safeIndex: Int) -> Element? {
-        return self.indices ~= safeIndex ? self[safeIndex] : nil
-    }
-    
-}
-
-
-extension Disposable {
-    
-    /// for use inside closures with [weak self]. disposed instanteously if bag is nil
-    public func addDisposableToBagIfItsStillNotDisposed(bag: RxSwift.DisposeBag?) {
-        guard let bag = bag else {
-            self.dispose()
-            return
-        }
-        self.addDisposableTo(bag)
-    }
-    
 }

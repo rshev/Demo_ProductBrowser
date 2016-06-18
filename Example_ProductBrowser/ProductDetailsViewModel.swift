@@ -72,4 +72,8 @@ class ProductDetailsViewModel {
         BagManager.sharedManager.addProductToBag(product)
     }
     
+    func getFavsFormatted() -> String {
+        return FavManager.sharedManager.getFormattedFavs()
+    }
+    
 }

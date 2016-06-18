@@ -71,7 +71,17 @@ class ProductListViewModel {
     }
     
     func triggerFavoriteForItem(index: Int) {
-        printl(index)
+        guard let product = category.details?.products[index] else { return }
+        FavManager.sharedManager.triggerFav(product: product)
+    }
+    
+    func isFavProduct(index index: Int) -> Bool {
+        guard let product = category.details?.products[index] else { return false }
+        return FavManager.sharedManager.isFav(product: product)
+    }
+    
+    func getFavsFormatted() -> String {
+        return FavManager.sharedManager.getFormattedFavs()
     }
     
     func productWasSelected(index index: Int) {

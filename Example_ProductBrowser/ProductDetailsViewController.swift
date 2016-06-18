@@ -123,4 +123,7 @@ class ProductDetailsViewController: UIViewController {
         viewModel?.addProductToBag()
     }
     
+    @IBAction func favTapped(sender: AnyObject) {
+    }
+    
 }

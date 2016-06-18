@@ -33,7 +33,7 @@ class ProductListViewController: UIViewController {
         super.viewDidLoad()
         collectionView.alpha = 0
 
-        self.hamburgerTap(nil)
+        hamburgerTap()
         
         bagBarButtonHelper = BagBarButtonHelper(viewControllerWithNavigationItem: self)
     }
@@ -45,16 +45,21 @@ class ProductListViewController: UIViewController {
         return vc
     }()
     
-    @IBAction func hamburgerTap(sender: AnyObject?) {
+    @IBAction func hamburgerTap() {
         hamburgerNavigationController.leftSide = true
         self.presentViewController(hamburgerNavigationController, animated: true, completion: nil)
     }
     
     @IBAction func unwindWithSelectedCategoryId(segue: UIStoryboardSegue) {
         collectionViewVisible = false
+        
+        // we should have a new viewModel at this point
+        viewModel?.delegate = self
+
         viewModel?.requestCategoryDetails().observeOn(MainScheduler.instance)
             .subscribeNext({ [weak self] in
                 
+            self?.collectionView.setContentOffset(CGPointZero, animated: false)
             self?.collectionViewVisible = true
             self?.collectionView.reloadData()
         }).addDisposableTo(disposeBag)
@@ -64,9 +69,10 @@ class ProductListViewController: UIViewController {
         guard sender.state == .Ended else { return }
         
         let point = sender.locationInView(collectionView)
-        if let indexPath = collectionView.indexPathForItemAtPoint(point) {
-            viewModel?.triggerFavoriteForItem(indexPath.item)
-        }
+        guard let indexPath = collectionView.indexPathForItemAtPoint(point) else { return }
+
+        viewModel?.triggerFavoriteForItem(indexPath.item)
+        collectionView.reloadItemsAtIndexPaths([indexPath])
     }
     
     private var productDetailsViewModelToPassFurther: ProductDetailsViewModel?
@@ -78,6 +84,13 @@ class ProductListViewController: UIViewController {
     }
     
     @IBAction func unwindFromProductDetailsToProductList(segue: UIStoryboardSegue) {}
+    
+    @IBAction func favTapped(sender: AnyObject) {
+        // in a real world app it should be a separate FavButtonHelper which will be re-used between classes
+        let alertController = UIAlertController(title: "Favorites contents", message: viewModel?.getFavsFormatted(), preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
     
 }
 
@@ -111,6 +124,7 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.productCell.identifier, forIndexPath: indexPath) as! ProductCollectionViewCell
         cell.priceLabel.text = viewModel?.getProductPrice(index: indexPath.item)
+        cell.setOutline(viewModel?.isFavProduct(index: indexPath.item) == true)               // comparing to true here to avoid optional unwrapping
         viewModel?.getProductImage(index: indexPath.item, completion: { [weak cell] (wasLocal, image) in
             if wasLocal {
                 cell?.setImage(image)
@@ -123,9 +137,6 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        // set here because MenuVC sets ViewModel only after selecting a category
-        viewModel?.delegate = self
-
         viewModel?.productWasSelected(index: indexPath.item)
     }
     

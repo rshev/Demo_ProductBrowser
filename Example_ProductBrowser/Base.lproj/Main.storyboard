@@ -186,7 +186,11 @@
                                 <constraint firstItem="7vG-r5-KsN" firstAttribute="centerX" secondItem="uAa-hu-eDO" secondAttribute="centerX" id="p21-TE-Gdk"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="XUf-pD-Bhi"/>
+                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="XUf-pD-Bhi">
+                            <connections>
+                                <action selector="favTapped:" destination="kZS-05-92c" id="xtG-HH-WOU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -336,7 +340,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="menu" id="70S-v8-K4U">
                             <connections>
-                                <action selector="hamburgerTap:" destination="fiS-HE-mzg" id="oT4-QP-9Bd"/>
+                                <action selector="hamburgerTap" destination="fiS-HE-mzg" id="sDB-Rp-euj"/>
                             </connections>
                         </barButtonItem>
                         <view key="titleView" contentMode="scaleToFill" id="vbe-LF-Rab">
@@ -353,7 +357,11 @@
                                 <constraint firstItem="ZYc-kS-w1K" firstAttribute="centerY" secondItem="vbe-LF-Rab" secondAttribute="centerY" id="jy2-3R-z6s"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="EFm-mk-WuS"/>
+                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="EFm-mk-WuS">
+                            <connections>
+                                <action selector="favTapped:" destination="fiS-HE-mzg" id="0Q8-J2-Di4"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
