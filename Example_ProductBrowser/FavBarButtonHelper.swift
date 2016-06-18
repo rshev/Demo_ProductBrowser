@@ -9,6 +9,8 @@
 import UIKit
 import RxSwift
 
+// the purpose of this Helper is to be re-usable on many ViewControllers, handling bar button tap to provide seamless experience from any ViewController
+
 class FavBarButtonHelper {
     
     private weak var viewControllerToManage: UIViewController?

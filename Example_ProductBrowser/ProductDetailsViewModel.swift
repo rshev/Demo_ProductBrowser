@@ -44,6 +44,7 @@ class ProductDetailsViewModel {
         return product.details?.imageUrls.count ?? 0
     }
     
+    // in completion closure I return wasLocal=true if image was found in cache, suggesting that it took very small amount of time to load it and the image can be assigned to cell immediately without re-referencing the cell by its indexPath. If wasLocal=false the image was downloaded from the Internet and the cell should be re-referenced by its indexPath again to assign the image.
     func getProductImage(index index: Int, completion: ((wasLocal: Bool, image: UIImage?)->Void)) {
         guard let imageUrl = product.details?.imageUrls[index] else { return }
         let imageUrlRequest = NSURLRequest(URL: imageUrl)

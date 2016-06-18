@@ -15,6 +15,7 @@ struct Backend {
     
     private static let provider = RxMoyaProvider<BackendTarget>()
     
+    // common network request handler, with retry and returning NSData
     private static func request(target: BackendTarget) -> Observable<NSData> {
         return provider.request(target)
             .retryIfMoyaUnreachable()
@@ -34,7 +35,7 @@ struct Backend {
             target = .GetCategoriesListWomen
         }
         return request(target).flatMap({ (data) -> Observable<Section> in
-            let section: Section = try Unbox(data)
+            let section: Section = try Unbox(data)          // if unbox throws, the whole observable throws
             return Observable.just(section)
         })
     }
@@ -99,18 +100,8 @@ extension BackendTarget: TargetType {
         }
     }
     
-    // DON'T FORGET TO MODIFY TESTS !!!
-    
     public var sampleData: NSData {
-        // WARNING: make it real
         return NSData()
-        //        @objc class TestClass: NSObject { }
-        //
-        //        let filename = self.path.substringFromIndex(self.path.startIndex.successor()).stringByReplacingOccurrencesOfString("/", withString: "-")
-        //
-        //        let bundle = NSBundle(forClass: TestClass.self)
-        //        let path = bundle.pathForResource(filename, ofType: "json")
-        //        return NSData(contentsOfFile: path!)!
     }
     
 }

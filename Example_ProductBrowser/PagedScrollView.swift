@@ -8,13 +8,15 @@
 
 import UIKit
 
+// this UIScrollView subclass will react to device rotation changes and set new ContentOffset to the same page it was before rotation. to be used in conjunction with paged scroll view.
+
 class PagedScrollView: UIScrollView {
 
     var lastFrameSize = CGSizeZero
     
     // logic to make paged scrollView stay on the same page when rotating the device
     override func layoutSubviews() {
-        defer {                                 // invoking super.layoutSubviews if we return at any point
+        defer {                                 // invoking super.layoutSubviews even if we exit at any point
             super.layoutSubviews()
         }
         

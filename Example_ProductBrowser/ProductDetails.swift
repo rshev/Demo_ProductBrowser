@@ -15,7 +15,7 @@ struct ProductDetails: Unboxable {
     let desc: String
 
     init(unboxer: Unboxer) {
-        imageUrls = unboxer.unbox("ProductImageUrls").flatMap { NSURL(string: $0) }     // converting strings to NSURLs
+        imageUrls = unboxer.unbox("ProductImageUrls").flatMap { NSURL(string: $0) }     // converting strings to NSURLs, ignoring if nil by flatMap
         desc = unboxer.unbox("Description")
     }
 

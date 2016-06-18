@@ -17,6 +17,7 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // waiting for both sections to load and then proceed from the splash screen 
         CatManager.sharedManager.sections$.observeOn(MainScheduler.instance)
             .subscribeNext { [weak self] (sections) in
                 

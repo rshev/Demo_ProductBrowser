@@ -36,6 +36,7 @@ class MenuViewController: UIViewController {
         viewModel.selectSectionNumber(1)
     }
     
+    // when I get a new ProductListViewModel when a category was tapped, I pass it further via the unwind segue
     var productListViewModelToPassFurther: ProductListViewModel?
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -58,6 +59,7 @@ extension MenuViewController: MenuViewModelDelegate {
         buttonRight.underlined = num == 1
     }
     
+    // when I get a new ProductListViewModel when a category was tapped, I pass it further via the unwind segue
     func menuPassCategoryProductListViewModelFurther(viewModel: ProductListViewModel) {
         productListViewModelToPassFurther = viewModel
         self.performSegueWithIdentifier(R.segue.menuViewController.unwindWithSelectedCategoryId.identifier, sender: self)

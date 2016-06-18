@@ -48,8 +48,8 @@ class ProductListViewController: UIViewController {
         return vc
     }()
     
+    // not made via Storyboard segue to retain the HamburgerViewController here. If segued via Storyboard it will initialize a new MenuViewController on each segue and reset the user selections there, not a behaviour we want.
     @IBAction func hamburgerTap() {
-        hamburgerNavigationController.leftSide = true
         self.presentViewController(hamburgerNavigationController, animated: true, completion: nil)
     }
     
@@ -74,10 +74,11 @@ class ProductListViewController: UIViewController {
         let point = sender.locationInView(collectionView)
         guard let indexPath = collectionView.indexPathForItemAtPoint(point) else { return }
 
-        viewModel?.triggerFavoriteForItem(indexPath.item)
+        viewModel?.triggerFavorite(indexPath.item)
         collectionView.reloadItemsAtIndexPaths([indexPath])
     }
     
+    // when I get a new ProductDetailsViewModel when a product was tapped, I pass it further to a new ProductDetailsViewController
     private var productDetailsViewModelToPassFurther: ProductDetailsViewModel?
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -92,6 +93,7 @@ class ProductListViewController: UIViewController {
 
 extension ProductListViewController: ProductListViewModelDelegate {
     
+    // when I get a new ProductDetailsViewModel when a product was tapped, I pass it further to a new ProductDetailsViewController
     func productPassProductDetailsViewModelFurther(viewModel: ProductDetailsViewModel) {
         productDetailsViewModelToPassFurther = viewModel
         self.performSegueWithIdentifier(R.segue.productListViewController.productDetails.identifier, sender: self)
@@ -120,8 +122,9 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(R.reuseIdentifier.productCell.identifier, forIndexPath: indexPath) as! ProductCollectionViewCell
         cell.priceLabel.text = viewModel?.getProductPrice(index: indexPath.item)
-        cell.setOutline(viewModel?.isFavProduct(index: indexPath.item) == true)               // comparing to true here to avoid optional unwrapping
+        cell.setOutline(viewModel?.isFavorite(index: indexPath.item) == true)               // comparing to true here to avoid optional unwrapping
         viewModel?.getProductImage(index: indexPath.item, completion: { [weak cell] (wasLocal, image) in
+            
             if wasLocal {
                 cell?.setImage(image)
             } else {

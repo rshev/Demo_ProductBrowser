@@ -9,6 +9,10 @@
 import UIKit
 import RxSwift
 
+// the purpose of this Helper is to be re-usable on many ViewControllers, listening for BagManager count
+// changes and then replacing ViewController Bag BarButtonItem with another one with a new rendered bag
+// with items count inside. Also handles bar button tap to provide seamless experience from any ViewController
+
 class BagBarButtonHelper {
     
     private weak var viewControllerToManage: UIViewController?
@@ -21,7 +25,6 @@ class BagBarButtonHelper {
         BagManager.sharedManager.bagItemsCount$.observeOn(MainScheduler.instance).subscribeNext { [weak self] (count) in
             
             self?.replaceButton(newBagCount: count)
-            
         }.addDisposableTo(disposeBag)
 
     }
@@ -40,10 +43,11 @@ class BagBarButtonHelper {
         currentBarItem = newBarItem
     }
     
+    // shifting value for bag text relative to button image
     private let labelShiftY: CGFloat = 4
     
     private func renderNewImage(text text: String) -> UIImage {
-        let bagImage = R.image.basket()!            // unwrapping explicitly here because if asset disappears the code won't compile because of R.Swift
+        let bagImage = R.image.basket()!            // unwrapping explicitly here because if asset disappears the code won't compile because of R.Swift auto-regenerating nature
         
         let rect = CGRect(origin: CGPointZero, size: bagImage.size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)

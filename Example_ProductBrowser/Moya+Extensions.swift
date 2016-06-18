@@ -12,6 +12,7 @@ import Moya
 
 extension ObservableConvertibleType {
     
+    // Ractive extension to retry network request if a network (Moya) error was received
     func retryIfMoyaUnreachable() -> Observable<E> {
         return self.asObservable().catchError { error in
             if error is Moya.Error {

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// used in conjunction with KZLinkedConsole Xcode plugin to show the exact line of issued message
 func printl(message: Any? = nil, filename: String = #file, line: Int = #line, function: String = #function) {
     #if DEBUG
         print("\((filename as NSString).lastPathComponent):\(line) \(function)", terminator: "")

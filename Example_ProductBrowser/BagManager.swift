@@ -29,6 +29,7 @@ class BagManager {
     private func updateItemsCount() {
         // this logic depends on how we calc items in a bag - as number of products or as quantities of every product summed up. as it wasn't specified in the exercise spec, I'll calculate it as a sum of all ordered items, to make it a little bit more complicated
         _bagItemsCount.value = bagContents.reduce(0, combine: { (sum: Int, element: (_: Product, count: Int)) -> Int in
+            
             return sum + element.count
         })
     }

@@ -64,7 +64,7 @@ class ProductDetailsViewController: UIViewController {
         setContentVisible(true, animated: true)
         brandLabel.text = viewModel.getProductBrand()
         descLabel.text = viewModel.getProductDescription()
-        refreshButtonText()
+        bagButton.setTitle(viewModel.getProductBagPriceButtonFormatted(), forState: .Normal)
         
         let imageCount = viewModel.getProductImagesCount()
         pageControl.numberOfPages = imageCount
@@ -116,10 +116,6 @@ class ProductDetailsViewController: UIViewController {
         }
         _ = animated ? UIView.animateWithDuration(0.5, animations: action) : action()
         _ = newValue ? spinnerView.stopAnimating() : spinnerView.startAnimating()
-    }
-    
-    func refreshButtonText() {
-        bagButton.setTitle(viewModel?.getProductBagPriceButtonFormatted(), forState: .Normal)
     }
     
     @IBAction func bagTap() {

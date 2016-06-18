@@ -14,6 +14,7 @@ class SelectableButton: UIButton {
 
     private let underlineView = UIView()
     
+    // trick to execute this one time on the variable initialization. invokes setup() method just because Xcode autocompletion breaks inside this closure.
     private lazy var oneTimeSetup: Void = {
         self.setup()
     }()
@@ -30,6 +31,7 @@ class SelectableButton: UIButton {
     }
     
     override func layoutSubviews() {
+        // invoke setup one time here on the first layoutSubviews() invokation
         _ = oneTimeSetup
         super.layoutSubviews()
     }

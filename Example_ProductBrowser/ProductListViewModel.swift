@@ -46,6 +46,7 @@ class ProductListViewModel {
         return category.name
     }
     
+    // in completion closure I return wasLocal=true if image was found in cache, suggesting that it took very small amount of time to load it and the image can be assigned to cell immediately without re-referencing the cell by its indexPath. If wasLocal=false the image was downloaded from the Internet and the cell should be re-referenced by its indexPath again to assign the image. 
     func getProductImage(index index: Int, completion: ((wasLocal: Bool, image: UIImage?)->Void)) {
         guard let imageUrl = category.details?.products[index].imageUrl else { return }
         let imageUrlRequest = NSURLRequest(URL: imageUrl)
@@ -70,12 +71,12 @@ class ProductListViewModel {
         return category.details?.products[index].formattedPrice ?? ""
     }
     
-    func triggerFavoriteForItem(index: Int) {
+    func triggerFavorite(index: Int) {
         guard let product = category.details?.products[index] else { return }
         FavManager.sharedManager.triggerFav(product: product)
     }
     
-    func isFavProduct(index index: Int) -> Bool {
+    func isFavorite(index index: Int) -> Bool {
         guard let product = category.details?.products[index] else { return false }
         return FavManager.sharedManager.isFav(product: product)
     }

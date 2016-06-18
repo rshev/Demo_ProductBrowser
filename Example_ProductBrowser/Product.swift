@@ -25,7 +25,7 @@ struct Product: Unboxable, Hashable {
         title = unboxer.unbox("Title")
         brand = unboxer.unbox("Brand")
         formattedPrice = unboxer.unbox("CurrentPrice")
-        let imageUrls: [NSURL] = unboxer.unbox("ProductImageUrl").flatMap { NSURL(string: $0) }
+        let imageUrls: [NSURL] = unboxer.unbox("ProductImageUrl").flatMap { NSURL(string: $0) }   // converting strings to NSURLs, ignoring if nil by flatMap
         if let imageUrl = imageUrls.first {
             self.imageUrl = imageUrl
         } else {
