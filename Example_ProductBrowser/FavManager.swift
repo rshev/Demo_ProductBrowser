@@ -28,7 +28,7 @@ class FavManager {
     }
     
     func getFormattedFavs() -> String {
-        return "count=\(favProducts.count)\n" + favProducts.map({ "id=\($0.id)" }).joinWithSeparator("\n")
+        return "count=\(favProducts.count)\n" + favProducts.map({ "id=\($0.id) title=\($0.title)" }).joinWithSeparator("\n")
     }
     
 }

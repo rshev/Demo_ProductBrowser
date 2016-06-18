@@ -18,6 +18,7 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var bagButton: UIButton!
     @IBOutlet weak var spinnerView: UIActivityIndicatorView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var favBarButtonItem: UIBarButtonItem!
     
     weak var viewModel: ProductDetailsViewModel?
     
@@ -27,6 +28,7 @@ class ProductDetailsViewController: UIViewController {
     
     // should be retained here for button actions to work properly
     var bagBarButtonHelper: BagBarButtonHelper?
+    var favBarButtonHelper: FavBarButtonHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,7 @@ class ProductDetailsViewController: UIViewController {
         }.addDisposableTo(disposeBag)
         
         bagBarButtonHelper = BagBarButtonHelper(viewControllerWithNavigationItem: self)
+        favBarButtonHelper = FavBarButtonHelper(viewControllerWithNavigationItem: self, favBarButton: favBarButtonItem)
     }
     
     func renderDetails() {
@@ -121,9 +124,6 @@ class ProductDetailsViewController: UIViewController {
     
     @IBAction func bagTap() {
         viewModel?.addProductToBag()
-    }
-    
-    @IBAction func favTapped(sender: AnyObject) {
     }
     
 }

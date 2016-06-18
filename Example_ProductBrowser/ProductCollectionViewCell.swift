@@ -27,8 +27,8 @@ class ProductCollectionViewCell: UICollectionViewCell {
     }
     
     func setOutline(value: Bool) {
-        imageView.layer.borderWidth = value ? 3 : 0
-        imageView.layer.borderColor = UIColor.yellowColor().CGColor
+        imageView.layer.borderWidth = value ? 5 : 0
+        imageView.layer.borderColor = UIColor.orangeColor().CGColor
     }
     
 }

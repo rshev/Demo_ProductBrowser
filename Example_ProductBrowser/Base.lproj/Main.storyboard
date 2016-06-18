@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="splash_screen_logo" translatesAutoresizingMaskIntoConstraints="NO" id="42O-5G-VPd">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="splash_screen_logo" translatesAutoresizingMaskIntoConstraints="NO" id="42O-5G-VPd">
                                 <rect key="frame" x="116" y="212" width="143" height="42"/>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AWu-34-M9j">
@@ -176,7 +176,7 @@
                             <rect key="frame" x="116" y="5.5" width="143" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7vG-r5-KsN">
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7vG-r5-KsN">
                                     <rect key="frame" x="40.5" y="7.5" width="62" height="18"/>
                                 </imageView>
                             </subviews>
@@ -186,17 +186,14 @@
                                 <constraint firstItem="7vG-r5-KsN" firstAttribute="centerX" secondItem="uAa-hu-eDO" secondAttribute="centerX" id="p21-TE-Gdk"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="XUf-pD-Bhi">
-                            <connections>
-                                <action selector="favTapped:" destination="kZS-05-92c" id="xtG-HH-WOU"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="XUf-pD-Bhi"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bagButton" destination="445-aF-0oA" id="x5x-4k-tMX"/>
                         <outlet property="brandLabel" destination="xSz-KW-PZa" id="iCl-Rf-32k"/>
                         <outlet property="descLabel" destination="awE-wV-nDw" id="Ftl-sN-x7h"/>
+                        <outlet property="favBarButtonItem" destination="XUf-pD-Bhi" id="YeC-aS-DC6"/>
                         <outlet property="imagesContentView" destination="rou-vc-84F" id="x4A-Wy-mtv"/>
                         <outlet property="imagesScrollView" destination="2Ep-pK-nnS" id="aeh-lu-0c2"/>
                         <outlet property="pageControl" destination="v6d-pf-7VB" id="cnP-Kx-8m8"/>
@@ -347,7 +344,7 @@
                             <rect key="frame" x="116" y="5.5" width="143" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView hidden="YES" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-kS-w1K">
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZYc-kS-w1K">
                                     <rect key="frame" x="40.5" y="7.5" width="62" height="18"/>
                                 </imageView>
                             </subviews>
@@ -357,15 +354,12 @@
                                 <constraint firstItem="ZYc-kS-w1K" firstAttribute="centerY" secondItem="vbe-LF-Rab" secondAttribute="centerY" id="jy2-3R-z6s"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="EFm-mk-WuS">
-                            <connections>
-                                <action selector="favTapped:" destination="fiS-HE-mzg" id="0Q8-J2-Di4"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="wishlist" id="EFm-mk-WuS"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionView" destination="B4k-c2-OtT" id="mu3-Id-WsJ"/>
+                        <outlet property="favBarButtonItem" destination="EFm-mk-WuS" id="bTW-J1-vOd"/>
                         <segue destination="kZS-05-92c" kind="show" identifier="ProductDetails" id="c1c-m2-OS9"/>
                     </connections>
                 </viewController>

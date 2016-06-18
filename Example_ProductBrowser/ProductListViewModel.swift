@@ -80,10 +80,6 @@ class ProductListViewModel {
         return FavManager.sharedManager.isFav(product: product)
     }
     
-    func getFavsFormatted() -> String {
-        return FavManager.sharedManager.getFormattedFavs()
-    }
-    
     func productWasSelected(index index: Int) {
         guard let product = category.details?.products[index] else { return }
         let productDetailsViewModel = ProductDetailsViewModel(product: product)

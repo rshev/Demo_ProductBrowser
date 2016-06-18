@@ -13,6 +13,7 @@ import SideMenu
 class ProductListViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var favBarButtonItem: UIBarButtonItem!
     
     weak var viewModel: ProductListViewModel?
     
@@ -28,6 +29,7 @@ class ProductListViewController: UIViewController {
     
     // should be retained here for button actions to work properly
     var bagBarButtonHelper: BagBarButtonHelper?
+    var favBarButtonHelper: FavBarButtonHelper?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,7 @@ class ProductListViewController: UIViewController {
         hamburgerTap()
         
         bagBarButtonHelper = BagBarButtonHelper(viewControllerWithNavigationItem: self)
+        favBarButtonHelper = FavBarButtonHelper(viewControllerWithNavigationItem: self, favBarButton: favBarButtonItem)
     }
 
     let hamburgerNavigationController: UISideMenuNavigationController = {
@@ -84,13 +87,6 @@ class ProductListViewController: UIViewController {
     }
     
     @IBAction func unwindFromProductDetailsToProductList(segue: UIStoryboardSegue) {}
-    
-    @IBAction func favTapped(sender: AnyObject) {
-        // in a real world app it should be a separate FavButtonHelper which will be re-used between classes
-        let alertController = UIAlertController(title: "Favorites contents", message: viewModel?.getFavsFormatted(), preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
     
 }
 
