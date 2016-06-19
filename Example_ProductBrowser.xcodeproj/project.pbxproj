@@ -34,6 +34,7 @@
 		64408DD51D15BA2000285CC2 /* FavBarButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64408DD41D15BA2000285CC2 /* FavBarButtonHelper.swift */; };
 		64408DD81D15FF2700285CC2 /* ObjectMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64408DD71D15FF2700285CC2 /* ObjectMocks.swift */; };
 		64408DDA1D170C6500285CC2 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64408DD91D170C6500285CC2 /* ModelTests.swift */; };
+		64408DDC1D1716CC00285CC2 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64408DDB1D1716CC00285CC2 /* ViewModelTests.swift */; };
 		64459FEB1D141E76003D63BD /* BagBarButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64459FEA1D141E76003D63BD /* BagBarButtonHelper.swift */; };
 		646681B61D14033E00580764 /* BagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646681B51D14033E00580764 /* BagManager.swift */; };
 		647B2E481D0CAD5E00337E48 /* CatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647B2E471D0CAD5E00337E48 /* CatManager.swift */; };
@@ -87,6 +88,7 @@
 		64408DD41D15BA2000285CC2 /* FavBarButtonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavBarButtonHelper.swift; sourceTree = "<group>"; };
 		64408DD71D15FF2700285CC2 /* ObjectMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectMocks.swift; sourceTree = "<group>"; };
 		64408DD91D170C6500285CC2 /* ModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		64408DDB1D1716CC00285CC2 /* ViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 		64459FEA1D141E76003D63BD /* BagBarButtonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BagBarButtonHelper.swift; sourceTree = "<group>"; };
 		646681B51D14033E00580764 /* BagManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BagManager.swift; sourceTree = "<group>"; };
 		647B2E471D0CAD5E00337E48 /* CatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatManager.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				643872971D0C6D4A00563D39 /* ObjectTests.swift */,
+				64408DDB1D1716CC00285CC2 /* ViewModelTests.swift */,
 				64408DD71D15FF2700285CC2 /* ObjectMocks.swift */,
 				64408DD91D170C6500285CC2 /* ModelTests.swift */,
 				643872991D0C6D4A00563D39 /* Info.plist */,
@@ -516,6 +519,7 @@
 			files = (
 				64408DDA1D170C6500285CC2 /* ModelTests.swift in Sources */,
 				64408DD81D15FF2700285CC2 /* ObjectMocks.swift in Sources */,
+				64408DDC1D1716CC00285CC2 /* ViewModelTests.swift in Sources */,
 				643872981D0C6D4A00563D39 /* ObjectTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
