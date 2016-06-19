@@ -82,6 +82,7 @@ class ObjectMocks {
                 "Title": "ASOS Midi Skirt in Quilted Jersey"
             ]]]
     
+    // confused with some objC class, had to specify module explicitly
     class func getMockedCategoryDetailed() throws -> Example_ProductBrowser.Category {
         let section = try getMockedSection()
         var category = section.categories[0]
@@ -111,5 +112,19 @@ class ObjectMocks {
         "AdditionalInfo": "100% Polyester\n\n\n\n\n\nSIZE & FIT \n\nModel wears: UK 8/ EU 36/ US 4\n\n\n\nSize UK 8/ EU 36/ US 4 side neck to hem measures: 46cm/18in",
         "Description": "Fringed crop top, featuring a reinforced boat neckline, raglan style slashed sleeves with tasselled fringe trim, and a cropped length, in a sheer finish.",
         ]
+    
+    enum MockError: ErrorType {
+        case NoProductsInCategory
+    }
+    
+    class func getMockedProductDetailed() throws -> Product {
+        let category = try getMockedCategoryDetailed()
+        guard var product = category.details?.products[0] else {
+            throw MockError.NoProductsInCategory
+        }
+        let productDetails: ProductDetails = try Unbox(jsonMockupProduct)
+        product.assignDetails(productDetails)
+        return product
+    }
     
 }
