@@ -28,7 +28,10 @@ class FavManager {
     }
     
     func getFormattedFavs() -> String {
-        return "count=\(favProducts.count)\n" + favProducts.map({ "id=\($0.id) title=\($0.title)" }).joinWithSeparator("\n")
+        // joining an array here to avoid unneeded newlines if favorite count is zero
+        var lines = ["count=\(favProducts.count)"]
+        lines += favProducts.map({ "id=\($0.id) title=\($0.title)" })
+        return lines.joinWithSeparator("\n")
     }
     
 }

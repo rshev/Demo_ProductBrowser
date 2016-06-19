@@ -1,5 +1,5 @@
 //
-//  Example_ProductBrowserTestsObjects.swift
+//  ObjectTests.swift
 //  Example_ProductBrowserTests
 //
 //  Created by asdfgh1 on 11/06/2016.
@@ -10,7 +10,7 @@ import XCTest
 import Unbox
 @testable import Example_ProductBrowser
 
-class Example_ProductBrowserTestsObjects: XCTestCase {
+class ObjectTests: XCTestCase {
     
     func testSection() {
         do {

@@ -19,6 +19,9 @@ class BagManager {
     var bagItemsCount$: Observable<Int> {
         return _bagItemsCount.asObservable().distinctUntilChanged()
     }
+    var bagItemsCount: Int {
+        return _bagItemsCount.value
+    }
     
     func addProductToBag(product: Product) {
         // subscripting a dictionary returns optional, treat it as zero if the product is not there
@@ -35,11 +38,14 @@ class BagManager {
     }
     
     func getFormattedBagContents() -> String {
+        // joining an array here to avoid unneeded newlines if bag count is zero
         // mapping a dictionary gives a (Key, Value) tuple, produce an array and then join it with a newline
-        return "count=\(_bagItemsCount.value)\n" + bagContents.map({ (element: (product: Product, count: Int)) -> String in
+        var lines = ["count=\(bagItemsCount)"]
+        lines += bagContents.map({ (element: (product: Product, count: Int)) -> String in
             
             return "id=\(element.product.id), quantity=\(element.count)"
-        }).joinWithSeparator("\n")
+        })
+        return lines.joinWithSeparator("\n")
     }
     
 }
