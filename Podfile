@@ -9,11 +9,11 @@ target 'Example_ProductBrowser' do
 
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Moya'
+  pod 'Moya', '~> 7'
   pod 'Moya/RxSwift'
-  pod 'Unbox'
-  pod 'SideMenu'
-  pod 'R.swift'
+  pod 'Unbox', '~> 1.0'
+  pod 'SideMenu', '~> 1.0'
+  pod 'R.swift', '~> 2.0'
   pod 'AlamofireImage', '~> 2.0'
   # Pods for Example_ProductBrowser
 

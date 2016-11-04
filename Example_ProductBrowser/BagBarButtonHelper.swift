@@ -46,7 +46,7 @@ class BagBarButtonHelper {
     // shifting value for bag text relative to button image
     private let labelShiftY: CGFloat = 4
     
-    private func renderNewImage(text text: String) -> UIImage {
+    private func renderNewImage(text text: String) -> UIImage? {
         let bagImage = R.image.basket()!            // unwrapping explicitly here because if asset disappears the code won't compile because of R.Swift auto-regenerating nature
         
         let rect = CGRect(origin: CGPointZero, size: bagImage.size)

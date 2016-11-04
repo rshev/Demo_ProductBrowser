@@ -103,5 +103,9 @@ extension BackendTarget: TargetType {
     public var sampleData: NSData {
         return NSData()
     }
+
+    public var multipartBody: [MultipartFormData]? {
+        return nil
+    }
     
 }

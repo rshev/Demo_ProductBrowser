@@ -275,13 +275,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6438729C1D0C6D4A00563D39 /* Build configuration list for PBXNativeTarget "Example_ProductBrowser" */;
 			buildPhases = (
-				F8492B6F4FED9550FAAB5D09 /* 📦 Check Pods Manifest.lock */,
+				F8492B6F4FED9550FAAB5D09 /* [CP] Check Pods Manifest.lock */,
 				647B2E4D1D0CB55100337E48 /* R.swift */,
 				6438727B1D0C6D4A00563D39 /* Sources */,
 				6438727C1D0C6D4A00563D39 /* Frameworks */,
 				6438727D1D0C6D4A00563D39 /* Resources */,
-				121BE0131B46375ED195B604 /* 📦 Embed Pods Frameworks */,
-				7076F46715C578589F3D3F66 /* 📦 Copy Pods Resources */,
+				121BE0131B46375ED195B604 /* [CP] Embed Pods Frameworks */,
+				7076F46715C578589F3D3F66 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,12 +296,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6438729F1D0C6D4A00563D39 /* Build configuration list for PBXNativeTarget "Example_ProductBrowserTests" */;
 			buildPhases = (
-				B4628C31E34840E1F9890D77 /* 📦 Check Pods Manifest.lock */,
+				B4628C31E34840E1F9890D77 /* [CP] Check Pods Manifest.lock */,
 				6438728F1D0C6D4A00563D39 /* Sources */,
 				643872901D0C6D4A00563D39 /* Frameworks */,
 				643872911D0C6D4A00563D39 /* Resources */,
-				DF8D7F5960F85207B22AE833 /* 📦 Embed Pods Frameworks */,
-				5B6A221FC083728F2D35EA47 /* 📦 Copy Pods Resources */,
+				DF8D7F5960F85207B22AE833 /* [CP] Embed Pods Frameworks */,
+				5B6A221FC083728F2D35EA47 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -320,14 +320,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = rshev;
 				TargetAttributes = {
 					6438727E1D0C6D4A00563D39 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 					643872921D0C6D4A00563D39 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 6438727E1D0C6D4A00563D39;
 					};
 				};
@@ -373,14 +375,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		121BE0131B46375ED195B604 /* 📦 Embed Pods Frameworks */ = {
+		121BE0131B46375ED195B604 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,14 +390,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example_ProductBrowser/Pods-Example_ProductBrowser-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5B6A221FC083728F2D35EA47 /* 📦 Copy Pods Resources */ = {
+		5B6A221FC083728F2D35EA47 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,14 +419,14 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
 		};
-		7076F46715C578589F3D3F66 /* 📦 Copy Pods Resources */ = {
+		7076F46715C578589F3D3F66 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,29 +434,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example_ProductBrowser/Pods-Example_ProductBrowser-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B4628C31E34840E1F9890D77 /* 📦 Check Pods Manifest.lock */ = {
+		B4628C31E34840E1F9890D77 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		DF8D7F5960F85207B22AE833 /* 📦 Embed Pods Frameworks */ = {
+		DF8D7F5960F85207B22AE833 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,19 +464,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example_ProductBrowserTests/Pods-Example_ProductBrowserTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F8492B6F4FED9550FAAB5D09 /* 📦 Check Pods Manifest.lock */ = {
+		F8492B6F4FED9550FAAB5D09 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -568,8 +570,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -613,8 +617,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -633,6 +639,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -647,6 +654,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rshev.Example-ProductBrowser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -659,6 +667,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rshev.Example-ProductBrowser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -671,6 +680,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rshev.Example-ProductBrowserTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example_ProductBrowser.app/Example_ProductBrowser";
 			};
 			name = Debug;
@@ -684,6 +694,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.rshev.Example-ProductBrowserTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example_ProductBrowser.app/Example_ProductBrowser";
 			};
 			name = Release;
