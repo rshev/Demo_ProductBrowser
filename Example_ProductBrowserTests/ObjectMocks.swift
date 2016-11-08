@@ -41,45 +41,45 @@ class ObjectMocks {
         "Listings": [
             [
                 "BasePrice": 30.0,
-                "Brand": "ASOS",
+                "Brand": "QWOW",
                 "CurrentPrice": "£30.00",
                 "HasMoreColours": true,
                 "IsInSet": false,
                 "PreviousPrice": "",
                 "ProductId": 1743838,
                 "ProductImageUrl": [
-                    "http://images.asos.com/inv/media/8/3/8/3/1743838/creamblack/image1xl.jpg"
+                    "http://images.qwow.com/inv/media/8/3/8/3/1743838/creamblack/image1xl.jpg"
                 ],
                 "RRP": "",
-                "Title": "ASOS Blouse With Tipped Drop Collar"
+                "Title": "QWOW Blouse With Tipped Drop Collar"
             ],
             [
                 "BasePrice": 30.0,
-                "Brand": "ASOS",
+                "Brand": "QWOW",
                 "CurrentPrice": "£30.00",
                 "HasMoreColours": false,
                 "IsInSet": false,
                 "PreviousPrice": "",
                 "ProductId": 1755616,
                 "ProductImageUrl": [
-                    "http://images.asos.com/inv/media/6/1/6/5/1755616/spectrumblue/image1xl.jpg"
+                    "http://images.qwow.com/inv/media/6/1/6/5/1755616/spectrumblue/image1xl.jpg"
                 ],
                 "RRP": "",
-                "Title": "ASOS Mini Skirt With Pocket Front Panel"
+                "Title": "QWOW Mini Skirt With Pocket Front Panel"
             ],
             [
                 "BasePrice": 30.0,
-                "Brand": "ASOS",
+                "Brand": "QWOW",
                 "CurrentPrice": "£30.00",
                 "HasMoreColours": false,
                 "IsInSet": false,
                 "PreviousPrice": "",
                 "ProductId": 1760169,
                 "ProductImageUrl": [
-                    "http://images.asos.com/inv/media/9/6/1/0/1760169/black/image1xl.jpg"
+                    "http://images.qwow.com/inv/media/9/6/1/0/1760169/black/image1xl.jpg"
                 ],
                 "RRP": "",
-                "Title": "ASOS Midi Skirt in Quilted Jersey"
+                "Title": "QWOW Midi Skirt in Quilted Jersey"
             ]]]
     
     // confused with some objC class, had to specify module explicitly
@@ -93,7 +93,7 @@ class ObjectMocks {
     
     static let jsonMockupProduct: [String: AnyObject] = [
         "BasePrice": 35.0,
-        "Brand": "ASOS",
+        "Brand": "QWOW",
         "CurrentPrice": "£35.00",
         "InStock": true,
         "IsInSet": false,
@@ -101,14 +101,14 @@ class ObjectMocks {
         "PriceType": "Full",
         "ProductId": 1703489,
         "ProductImageUrls": [
-            "http://images.asos.com/inv/media/9/8/4/3/1703489/red/image1xxl.jpg",
-            "http://images.asos.com/inv/media/9/8/4/3/1703489/image2xxl.jpg",
-            "http://images.asos.com/inv/media/9/8/4/3/1703489/image3xxl.jpg",
-            "http://images.asos.com/inv/media/9/8/4/3/1703489/image4xxl.jpg"
+            "http://images.qwow.com/inv/media/9/8/4/3/1703489/red/image1xxl.jpg",
+            "http://images.qwow.com/inv/media/9/8/4/3/1703489/image2xxl.jpg",
+            "http://images.qwow.com/inv/media/9/8/4/3/1703489/image3xxl.jpg",
+            "http://images.qwow.com/inv/media/9/8/4/3/1703489/image4xxl.jpg"
         ],
         "RRP": "",
         "Sku": "101050",
-        "Title": "ASOS Fringe Sleeve Mesh Crop",
+        "Title": "QWOW Fringe Sleeve Mesh Crop",
         "AdditionalInfo": "100% Polyester\n\n\n\n\n\nSIZE & FIT \n\nModel wears: UK 8/ EU 36/ US 4\n\n\n\nSize UK 8/ EU 36/ US 4 side neck to hem measures: 46cm/18in",
         "Description": "Fringed crop top, featuring a reinforced boat neckline, raglan style slashed sleeves with tasselled fringe trim, and a cropped length, in a sheer finish.",
         ]
