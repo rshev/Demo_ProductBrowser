@@ -1,0 +1,71 @@
+{
+   "Description":"WOMEN",
+   "Listing":[
+      {
+         "CategoryId":"catalog01_1000_2623",
+         "Name":"New In: Clothing",
+         "ProductCount":211
+      },
+      {
+         "CategoryId":"catalog01_1000_6992",
+         "Name":"New In: Shoes",
+         "ProductCount":194
+      },
+      {
+         "CategoryId":"catalog01_1000_6930",
+         "Name":"New In: Designer",
+         "ProductCount":0
+      },
+      {
+         "CategoryId":"catalog01_1000_12451",
+         "Name":"50% Off Autumn",
+         "ProductCount":0
+      },
+      {
+         "CategoryId":"catalog01_1000_4174",
+         "Name":"Accessories",
+         "ProductCount":571
+      },
+      {
+         "CategoryId":"catalog01_1000_8730",
+         "Name":"Bags & Purses",
+         "ProductCount":533
+      },
+      {
+         "CategoryId":"catalog01_1000_1314",
+         "Name":"Beauty",
+         "ProductCount":0
+      },
+      {
+         "CategoryId":"catalog01_1000_2641",
+         "Name":"Coats & Jackets",
+         "ProductCount":341
+      },
+      {
+         "CategoryId":"catalog01_1000_9577",
+         "Name":"Curve",
+         "ProductCount":122
+      },
+      {
+         "CategoryId":"catalog01_1000_8799",
+         "Name":"Dresses",
+         "ProductCount":1615
+      },
+      {
+         "CategoryId":"catalog01_1000_3630",
+         "Name":"Jeans",
+         "ProductCount":212
+      },
+      {
+         "CategoryId":"catalog01_1000_4175",
+         "Name":"Jewellery",
+         "ProductCount":1136
+      },
+      {
+         "CategoryId":"catalog01_1000_2637",
+         "Name":"Jumpers & Cardigans",
+         "ProductCount":305
+      }
+    ],
+   "SortType":"AlphaAscending"
+}
