@@ -2,6 +2,19 @@
 
 The test project for the one of the UK's biggest online retail companies.
 
+#### Client requirements
+
+* Display a splash screen with a spinner until the list of categories is loaded
+* Dynamically build a list of sections and categories within a hamburger menu
+* After selecting a category, items loaded in a grid layout, tappable to go to the details screen
+	* Images loaded asynchronously, as the view is scrolled
+	* Double-tap should favorite/unfavorite an item, displaying a yellow border around the image
+	* Tapping the favorites button in the tab bar should display an alert with a list of "favorited" items
+* Details screen should show all the item's photos within a scrollView
+	* Tapping the 'add to bag' button should add the item to the bag
+	* Tapping the bag button in the tab bar should display and alert with a list of id-quantity pairs of items added to the bag
+* Everything should be downloaded from 4 JSONs: 2 for each of sections, 1 containing items and 1 with item details
+
 #### Project highlights
 
 * Swift 2.2 + RxSwift technology stack, MVVM architecture
@@ -14,6 +27,9 @@ The test project for the one of the UK's biggest online retail companies.
 * Using R.swift for statically typed resources (images, storyboards, segues etc)
 * Tests
 * Generally, a lot of comments in code
+
+* Adjusted to compile with Swift 2.3 recently
+* Mocked "backend" is in the `gh-pages` branch
 
 #### License
 
