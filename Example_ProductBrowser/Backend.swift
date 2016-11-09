@@ -66,7 +66,7 @@ public enum BackendTarget {
 extension BackendTarget: TargetType {
     
     public var baseURL: NSURL {
-        return NSURL(string: "https://dl.dropboxusercontent.com/u/1559445/ASOS/SampleApi")!
+        return NSURL(string: "https://rshev.github.io/Example_ProductBrowser")!
     }
     
     public var method: Moya.Method {
